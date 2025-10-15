@@ -1,0 +1,52 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://Entities/player/item_thinkers/pistol/pistol_thinker.gd" type="Script" id=1]
+[ext_resource path="res://UI/cursors/cursor_pistol.png" type="Texture" id=2]
+[ext_resource path="res://Components/sound_player/sound_player.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Entities/Attacks/Projectile/small_bullet/pistol_pickup.wav" type="AudioStream" id=4]
+[ext_resource path="res://Entities/player/item_thinkers/pistol/pistol_reload.wav" type="AudioStream" id=5]
+[ext_resource path="res://Components/sound_player/sound/sound.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Entities/Item_Pickups/pistol/pistol.png" type="Texture" id=7]
+[ext_resource path="res://Components/spawner/spawner.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Effects/muzzle_flash/muzzle_flash.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Entities/Attacks/Projectile/small_bullet/small_bullet.tscn" type="PackedScene" id=10]
+
+[node name="pistol thinker" type="Node"]
+script = ExtResource( 1 )
+auto_ready_check = false
+SECONDARY_ACTION_MODE = 3
+HELD_ITEM_TEXTURE = ExtResource( 7 )
+HELD_ITEM_ANCHOR = Vector2( 11, 0 )
+RELOAD_ANIM = "spin"
+my_item = "pistol"
+display_name = "pistol"
+CURSOR = ExtResource( 2 )
+CURSOR_MODE = 1
+EQUIP_SOUND = ExtResource( 4 )
+reload_time = 1.1
+BULLET = ExtResource( 10 )
+
+[node name="cooldown" type="Timer" parent="."]
+one_shot = true
+
+[node name="reload" type="Timer" parent="."]
+one_shot = true
+
+[node name="sound_player" parent="." instance=ExtResource( 3 )]
+FREE_WHEN_EMPTY = false
+
+[node name="reload" parent="sound_player" instance=ExtResource( 6 )]
+stream = ExtResource( 5 )
+bus = "Master"
+MODE = 1
+AUTO_PLAY = false
+
+[node name="spawner" parent="." instance=ExtResource( 8 )]
+standby_mode = true
+thing = ExtResource( 9 )
+spawn_on_free = false
+rotation_mode = 1
+position_offset = Vector2( 0, -2 )
+effect_inherit_flipping = false
+
+[connection signal="timeout" from="reload" to="." method="_on_reload_timeout"]

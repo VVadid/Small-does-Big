@@ -1,0 +1,64 @@
+{
+	"events": [
+		{
+			"animation": "bouncing_in.gd",
+			"animation_length": 0,
+			"change_mirror_portrait": false,
+			"change_z_index": false,
+			"character": "character-1745233534.json",
+			"event_id": "dialogic_002",
+			"mirror_portrait": false,
+			"portrait": "Default",
+			"portrait_definition": "",
+			"position": {
+				"0": false,
+				"1": false,
+				"2": true,
+				"3": false,
+				"4": false
+			},
+			"type": 0,
+			"z_index": 0
+		},
+		{
+			"character": "character-1745233534.json",
+			"event_id": "dialogic_001",
+			"text": "You feel it too, don't you? The land... it weeps."
+		},
+		{
+			"character": "character-1745233534.json",
+			"event_id": "dialogic_001",
+			"text": "Your path begins with the spear. But it won't be enough for long."
+		},
+		{
+			"character": "character-1745233534.json",
+			"event_id": "dialogic_001",
+			"text": "Cleanse what you can. Restore what we lost."
+		},
+		{
+			"animation": "bounce_out.gd",
+			"animation_length": 0,
+			"change_mirror_portrait": false,
+			"change_z_index": false,
+			"character": "character-1745233534.json",
+			"event_id": "dialogic_002",
+			"mirror_portrait": false,
+			"portrait": "",
+			"portrait_definition": "",
+			"position": {
+				"0": false,
+				"1": false,
+				"2": false,
+				"3": false,
+				"4": false
+			},
+			"type": 1,
+			"z_index": 0
+		}
+	],
+	"metadata": {
+		"dialogic-version": "1.5.1",
+		"file": "timeline-1745233980.json",
+		"name": "NPC1"
+	}
+}

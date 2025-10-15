@@ -1,0 +1,326 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://Components/sound_player/sound_player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://UI/smart_ui_nodes/smart_checkbox/smart_checkbox.tscn" type="PackedScene" id=2]
+[ext_resource path="res://UI/smart_ui_nodes/smart_button/smart_button.tscn" type="PackedScene" id=3]
+[ext_resource path="res://UI/Themes/Styles/stylebox_selected_box.tres" type="StyleBox" id=4]
+[ext_resource path="res://UI/smart_ui_nodes/smart_slider/smart_slider.tscn" type="PackedScene" id=5]
+[ext_resource path="res://UI/options/options.gd" type="Script" id=6]
+[ext_resource path="res://UI/Themes/general_theme.tres" type="Theme" id=7]
+[ext_resource path="res://UI/Themes/Styles/stylebox_box.tres" type="StyleBox" id=8]
+[ext_resource path="res://UI/Icons/x.png" type="Texture" id=9]
+[ext_resource path="res://UI/pause_menu/menu_unpause.wav" type="AudioStream" id=11]
+[ext_resource path="res://UI/pause_menu/menu_pause.wav" type="AudioStream" id=12]
+
+[node name="options" type="Control"]
+modulate = Color( 1, 1, 1, 0.784314 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 7 )
+script = ExtResource( 6 )
+PAUSE_SOUND = ExtResource( 12 )
+UNPAUSE_SOUND = ExtResource( 11 )
+
+[node name="tabs" type="TabContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -182.0
+margin_top = -98.0
+margin_right = 182.0
+margin_bottom = 83.0
+grow_horizontal = 2
+grow_vertical = 2
+focus_neighbour_left = NodePath("General")
+focus_neighbour_right = NodePath("Exit")
+custom_constants/hseparation = 999
+custom_styles/tab_fg = ExtResource( 4 )
+custom_styles/tab_bg = ExtResource( 8 )
+tab_align = 0
+
+[node name="video" type="ScrollContainer" parent="tabs"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 6.0
+margin_top = 25.2494
+margin_right = -6.0
+margin_bottom = -2.24938
+focus_next = NodePath("../audio")
+focus_previous = NodePath("../../exit")
+follow_focus = true
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="VBox" type="VBoxContainer" parent="tabs/video"]
+margin_right = 336.0
+margin_bottom = 202.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+alignment = 1
+
+[node name="fullscreen" parent="tabs/video/VBox" instance=ExtResource( 2 )]
+margin_right = 336.0
+margin_bottom = 26.0
+shortcut_in_tooltip = false
+text = "fullscreen"
+selected_color = Color( 0.301961, 0.768627, 0.239216, 1 )
+
+[node name="vsync" parent="tabs/video/VBox" instance=ExtResource( 2 )]
+margin_top = 30.0
+margin_right = 336.0
+margin_bottom = 56.0
+hint_tooltip = "fixes screen tearing but causes higher input latency"
+text = "vsync"
+selected_color = Color( 0.301961, 0.768627, 0.239216, 1 )
+
+[node name="lighting" parent="tabs/video/VBox" instance=ExtResource( 2 )]
+margin_top = 60.0
+margin_right = 336.0
+margin_bottom = 86.0
+text = "enable lighting"
+selected_color = Color( 0.301961, 0.768627, 0.239216, 1 )
+
+[node name="ambient_lighting" parent="tabs/video/VBox" instance=ExtResource( 2 )]
+margin_top = 90.0
+margin_right = 336.0
+margin_bottom = 116.0
+hint_tooltip = "the natural environment's lighting. this includes darkness in caves"
+text = "enable ambient lighting"
+selected_color = Color( 0.301961, 0.768627, 0.239216, 1 )
+
+[node name="gpu_snap" parent="tabs/video/VBox" instance=ExtResource( 2 )]
+margin_top = 120.0
+margin_right = 336.0
+margin_bottom = 146.0
+hint_tooltip = "fixes tilemap artifacts, but makes camera movement a bit jittery"
+text = "GPU pixel snap"
+selected_color = Color( 0.301961, 0.768627, 0.239216, 1 )
+
+[node name="pixel" parent="tabs/video/VBox" instance=ExtResource( 2 )]
+margin_top = 150.0
+margin_right = 336.0
+margin_bottom = 176.0
+hint_tooltip = "pixels are snapped to the game resolution instead of native resolution"
+text = "pixel perfect filter (not recomended)"
+selected_color = Color( 0.301961, 0.768627, 0.239216, 1 )
+
+[node name="particles" type="HBoxContainer" parent="tabs/video/VBox"]
+margin_top = 180.0
+margin_right = 336.0
+margin_bottom = 202.0
+
+[node name="Label" type="Label" parent="tabs/video/VBox/particles"]
+margin_top = 2.0
+margin_right = 56.0
+margin_bottom = 20.0
+text = "particles:"
+
+[node name="dropdown" type="OptionButton" parent="tabs/video/VBox/particles"]
+margin_left = 60.0
+margin_right = 109.0
+margin_bottom = 22.4988
+theme = ExtResource( 7 )
+custom_constants/hseparation = -7
+custom_styles/hover = ExtResource( 8 )
+custom_styles/normal = ExtResource( 8 )
+text = "none"
+flat = true
+items = [ "none", null, false, 0, null, "few", null, false, 1, null, "most", null, false, 2, null, "all", null, false, 3, null ]
+selected = 0
+
+[node name="audio" type="ScrollContainer" parent="tabs"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 6.0
+margin_top = 23.2494
+margin_right = -6.0
+margin_bottom = -2.24938
+focus_next = NodePath("../game")
+focus_previous = NodePath("../video")
+follow_focus = true
+
+[node name="VBox" type="VBoxContainer" parent="tabs/audio"]
+margin_right = 352.0
+margin_bottom = 155.501
+size_flags_horizontal = 3
+size_flags_vertical = 3
+alignment = 1
+
+[node name="master_volume" parent="tabs/audio/VBox" instance=ExtResource( 5 )]
+anchor_right = 0.0
+margin_top = 24.0
+margin_right = 352.0
+margin_bottom = 42.0
+TEXT = "master volume (bugged)"
+
+[node name="sound_volume" parent="tabs/audio/VBox" instance=ExtResource( 5 )]
+anchor_right = 0.0
+margin_top = 46.0
+margin_right = 352.0
+margin_bottom = 64.0
+TEXT = "sound effects volume"
+
+[node name="menu_volume" parent="tabs/audio/VBox" instance=ExtResource( 5 )]
+anchor_right = 0.0
+margin_top = 68.0
+margin_right = 352.0
+margin_bottom = 86.0
+TEXT = "menu volume"
+
+[node name="ambiance_volume" parent="tabs/audio/VBox" instance=ExtResource( 5 )]
+anchor_right = 0.0
+margin_top = 90.0
+margin_right = 352.0
+margin_bottom = 108.0
+TEXT = "ambiance volume"
+
+[node name="footsteps_volume" parent="tabs/audio/VBox" instance=ExtResource( 5 )]
+anchor_right = 0.0
+margin_top = 112.0
+margin_right = 352.0
+margin_bottom = 130.0
+TEXT = "footsteps volume"
+
+[node name="game" type="ScrollContainer" parent="tabs"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 6.0
+margin_top = 23.2494
+margin_right = -6.0
+margin_bottom = -2.24938
+focus_next = NodePath("../../exit")
+focus_previous = NodePath("../audio")
+follow_focus = true
+
+[node name="VBox" type="VBoxContainer" parent="tabs/game"]
+margin_right = 352.0
+margin_bottom = 332.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+alignment = 1
+
+[node name="smooth" parent="tabs/game/VBox" instance=ExtResource( 2 )]
+margin_top = 56.0
+margin_right = 336.0
+margin_bottom = 80.0
+shortcut_in_tooltip = false
+text = "smooth camera"
+selected_color = Color( 0.301961, 0.768627, 0.239216, 1 )
+
+[node name="camera_zoom" parent="tabs/game/VBox" instance=ExtResource( 5 )]
+anchor_right = 0.0
+margin_top = 84.0
+margin_right = 336.0
+margin_bottom = 102.0
+hint_tooltip = "accuracy of shadows, higher is better but more resource intensive"
+min_value = 0.5
+max_value = 1.5
+step = 0.1
+value = 1.0
+TEXT = "camera zoom"
+PROGRESS = 1
+
+[node name="spawn_pause" parent="tabs/game/VBox" instance=ExtResource( 2 )]
+margin_top = 106.0
+margin_right = 336.0
+margin_bottom = 130.0
+hint_tooltip = "pauses the level until you start moving"
+pressed = true
+text = "spawn pause"
+selected_color = Color( 0.301961, 0.768627, 0.239216, 1 )
+
+[node name="damage_numbers" parent="tabs/game/VBox" instance=ExtResource( 2 )]
+margin_top = 134.0
+margin_right = 336.0
+margin_bottom = 158.0
+hint_tooltip = "display the amount of damage an attack dealt"
+pressed = true
+text = "damage numbers"
+selected_color = Color( 0.301961, 0.768627, 0.239216, 1 )
+
+[node name="show_fps" parent="tabs/game/VBox" instance=ExtResource( 2 )]
+margin_top = 162.0
+margin_right = 336.0
+margin_bottom = 186.0
+hint_tooltip = "displays framerate in the top right corner"
+shortcut_in_tooltip = false
+pressed = true
+text = "show FPS"
+selected_color = Color( 0.301961, 0.768627, 0.239216, 1 )
+
+[node name="use_color" parent="tabs/game/VBox" instance=ExtResource( 2 )]
+margin_top = 190.0
+margin_right = 336.0
+margin_bottom = 214.0
+hint_tooltip = "displays framerate in the top right corner"
+shortcut_in_tooltip = false
+pressed = true
+text = "use custom player color"
+selected_color = Color( 0.301961, 0.768627, 0.239216, 1 )
+
+[node name="hidebar" parent="tabs/game/VBox" instance=ExtResource( 2 )]
+margin_top = 244.0
+margin_right = 336.0
+margin_bottom = 268.0
+shortcut_in_tooltip = false
+text = "hide item bar when empty"
+selected_color = Color( 0.301961, 0.768627, 0.239216, 1 )
+
+[node name="show_hud" parent="tabs/game/VBox" instance=ExtResource( 2 )]
+margin_top = 272.0
+margin_right = 336.0
+margin_bottom = 296.0
+shortcut_in_tooltip = false
+pressed = true
+text = "show HUD"
+selected_color = Color( 0.301961, 0.768627, 0.239216, 1 )
+
+[node name="perfection" parent="tabs/game/VBox" instance=ExtResource( 2 )]
+margin_top = 28.0
+margin_right = 336.0
+margin_bottom = 54.0
+hint_tooltip = "useful if you're going for perfects on levels"
+shortcut_in_tooltip = false
+text = "perfection mode (1 hit death)"
+selected_color = Color( 0.301961, 0.768627, 0.239216, 1 )
+
+[node name="brain_sapping" parent="tabs/game/VBox" instance=ExtResource( 5 )]
+anchor_right = 0.0
+margin_top = 300.0
+margin_right = 336.0
+margin_bottom = 318.0
+hint_tooltip = "accuracy of shadows, higher is better but more resource intensive"
+value = 1.0
+TEXT = "brain sapping"
+
+[node name="control_scheme" type="OptionButton" parent="tabs/game/VBox"]
+margin_right = 30.0
+margin_bottom = 20.4988
+
+[node name="exit" parent="." instance=ExtResource( 3 )]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -65.0
+margin_top = 9.0
+margin_right = -10.0
+margin_bottom = 31.0
+rect_scale = Vector2( 0.995537, 1 )
+custom_styles/hover = ExtResource( 4 )
+custom_styles/pressed = ExtResource( 4 )
+custom_styles/focus = ExtResource( 4 )
+custom_styles/normal = ExtResource( 8 )
+text = "exit"
+icon = ExtResource( 9 )
+selected_color = Color( 0.301961, 0.768627, 0.239216, 1 )
+hover_sound = null
+click_sound = null
+
+[node name="sound_player" parent="." instance=ExtResource( 1 )]
+
+[connection signal="tab_changed" from="tabs" to="." method="_on_tabs_tab_changed"]
+[connection signal="visibility_changed" from="tabs" to="." method="_on_tabs_visibility_changed"]
+[connection signal="pressed" from="exit" to="." method="_on_exit_pressed"]

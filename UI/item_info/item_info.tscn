@@ -1,0 +1,88 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://UI/Themes/general_theme.tres" type="Theme" id=1]
+[ext_resource path="res://UI/Themes/Styles/stylebox_full.png" type="Texture" id=3]
+[ext_resource path="res://UI/Themes/Styles/stylebox_empty.png" type="Texture" id=4]
+
+[node name="ItemInfo" type="VBoxContainer"]
+anchor_left = 0.85
+anchor_top = 0.99
+anchor_right = 0.99
+anchor_bottom = 0.99
+margin_left = -60.0
+margin_top = -32.0
+grow_horizontal = 0
+grow_vertical = 0
+size_flags_horizontal = 8
+theme = ExtResource( 1 )
+custom_constants/separation = 0
+alignment = 2
+
+[node name="ItemName" type="Label" parent="."]
+visible = false
+margin_left = 79.0
+margin_right = 113.0
+margin_bottom = 21.0
+grow_horizontal = 0
+grow_vertical = 0
+size_flags_horizontal = 8
+size_flags_vertical = 3
+size_flags_stretch_ratio = 2.0
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "Pistol"
+align = 2
+valign = 2
+
+[node name="ItemInfo" type="Label" parent="."]
+visible = false
+margin_top = 16.0
+margin_right = 113.0
+margin_bottom = 32.0
+grow_horizontal = 0
+grow_vertical = 0
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "10 / 10"
+align = 2
+clip_text = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+margin_right = 113.0
+margin_bottom = 32.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Control" type="Control" parent="HBoxContainer"]
+margin_right = 31.0
+margin_bottom = 32.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.4
+
+[node name="Bar" type="TextureProgress" parent="HBoxContainer"]
+margin_left = 35.0
+margin_right = 113.0
+margin_bottom = 32.0
+grow_horizontal = 0
+grow_vertical = 0
+size_flags_horizontal = 3
+size_flags_vertical = 5
+value = 1.0
+texture_under = ExtResource( 4 )
+texture_progress = ExtResource( 3 )
+nine_patch_stretch = true
+stretch_margin_left = 4
+stretch_margin_right = 4
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.01
+one_shot = true
+autostart = true

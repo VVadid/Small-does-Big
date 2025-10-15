@@ -1,0 +1,37 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Entities/player/item_thinkers/bow/bow_thinker.gd" type="Script" id=1]
+[ext_resource path="res://UI/cursors/cursor_bow.png" type="Texture" id=2]
+[ext_resource path="res://Components/sound_player/sound_player.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Entities/Item_Pickups/bow/bow.png" type="Texture" id=4]
+[ext_resource path="res://Entities/player/item_thinkers/bow/bow_equip.wav" type="AudioStream" id=5]
+
+[node name="bow_thinker" type="Node"]
+script = ExtResource( 1 )
+PRIMARY_ACTION_MODE = 2
+HELD_ITEM_TEXTURE = ExtResource( 4 )
+my_item = "bow"
+display_name = "Bow"
+CURSOR = ExtResource( 2 )
+CURSOR_MODE = 1
+EQUIP_SOUND = ExtResource( 5 )
+cooldown_time = 0.45
+CHARGE_ANIM = "bow_charge"
+
+[node name="charge" type="Timer" parent="."]
+wait_time = 0.1
+one_shot = true
+
+[node name="cooldown" type="Timer" parent="."]
+wait_time = 0.7
+one_shot = true
+autostart = true
+
+[node name="buffer" type="Timer" parent="."]
+one_shot = true
+
+[node name="sound_player" parent="." instance=ExtResource( 3 )]
+FREE_WHEN_EMPTY = false
+
+[connection signal="timeout" from="cooldown" to="." method="_on_cooldown_timeout"]
+[connection signal="timeout" from="buffer" to="." method="_on_buffer_timeout"]

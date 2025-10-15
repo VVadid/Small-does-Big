@@ -1,0 +1,27 @@
+{
+	"events": [
+		{
+			"character": "",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "It’s close… I can feel it. That thick, burnt air, like something’s been smoldering here for years."
+		},
+		{
+			"character": "",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "The ice is melting faster here… like it’s being eaten from the inside out."
+		},
+		{
+			"character": "",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Whatever's ahead… it’s the source of all this. I need to end it."
+		}
+	],
+	"metadata": {
+		"dialogic-version": "1.5.1",
+		"file": "timeline-1747721487.json",
+		"name": "Ice 7"
+	}
+}

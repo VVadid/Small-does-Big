@@ -1,0 +1,45 @@
+{
+	"events": [
+		{
+			"character": "",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Now i can't go back..."
+		},
+		{
+			"character": "",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "There are a bunch of plasmarers up ahead."
+		},
+		{
+			"character": "",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "I have to defeat them all, or try to sneak by and trick the watcher."
+		},
+		{
+			"character": "",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "This grass region is depending one me."
+		},
+		{
+			"character": "character-1746222060.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "If all grasslands were climate-neutral, global impact could drop 15–20%."
+		},
+		{
+			"character": "",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "I have to hurry and reach the plasmaror of this region."
+		}
+	],
+	"metadata": {
+		"dialogic-version": "1.5.1",
+		"file": "timeline-1747163477.json",
+		"name": "Dia_B3"
+	}
+}

@@ -1,0 +1,131 @@
+[gd_scene load_steps=16 format=2]
+
+[ext_resource path="res://Entities/Attacks/Melee/Melee.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Entities/Attacks/Melee/shine/shine.gd" type="Script" id=2]
+[ext_resource path="res://Entities/Attacks/Melee/shine/shine.png" type="Texture" id=3]
+[ext_resource path="res://Entities/Attacks/Melee/shine/shine.wav" type="AudioStream" id=4]
+[ext_resource path="res://Entities/Attacks/Melee/shine/shine_hit.wav" type="AudioStream" id=5]
+[ext_resource path="res://Components/sound_player/sound/sound.gd" type="Script" id=6]
+[ext_resource path="res://Entities/Attacks/Melee/shine/shine_reflect.wav" type="AudioStream" id=7]
+[ext_resource path="res://Effects/light.png" type="Texture" id=8]
+[ext_resource path="res://Effects/LightSource.gd" type="Script" id=9]
+
+[sub_resource type="ShaderMaterial" id=6]
+resource_local_to_scene = true
+
+[sub_resource type="CircleShape2D" id=2]
+radius = 5.5
+
+[sub_resource type="CircleShape2D" id=3]
+radius = 16.0
+
+[sub_resource type="Animation" id=4]
+resource_local_to_scene = true
+resource_name = "animation"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/path = NodePath("entity_sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.075, 0.15, 0.225, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4 ]
+}
+
+[sub_resource type="Animation" id=7]
+resource_local_to_scene = true
+resource_name = "animation_reverse"
+length = 0.2
+step = 0.01
+
+[sub_resource type="Animation" id=5]
+length = 0.15
+loop = true
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.05, 0.1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ 2, 3, 4 ]
+}
+
+[node name="shine" instance=ExtResource( 1 )]
+script = ExtResource( 2 )
+ACCELERATION = 0
+TOP_SPEED = 0
+FORCE_MULT = 0.02
+truName = "shine"
+PENETRATES = 2
+RANGE = 0
+auto_rotate = false
+SPAWN_SOUND = ExtResource( 4 )
+HIT_SOUND = ExtResource( 5 )
+KILL_SOUND = ExtResource( 5 )
+BLOCKED_SOUND = ExtResource( 5 )
+RECOIL = 0
+ANIMATION_NEVER_BACKWARDS = true
+HIDE_HELD_ITEM = false
+REVERSE_HELD_ITEM = false
+REFLECTION_MULT = 1.1
+
+[node name="entity_sprite" parent="." index="0"]
+material = SubResource( 6 )
+texture = ExtResource( 3 )
+hframes = 5
+
+[node name="hitbox" parent="." index="1"]
+COOLDOWN = 0.3
+DAMAGE = 0
+TRUE_DAMAGE = 1
+KNOCKBACK = 160
+
+[node name="CollisionShape2D" parent="hitbox" index="0"]
+shape = SubResource( 2 )
+
+[node name="sound" parent="." index="2"]
+FREE_WHEN_EMPTY = false
+
+[node name="reflect" type="AudioStreamPlayer2D" parent="sound" index="0"]
+stream = ExtResource( 7 )
+script = ExtResource( 6 )
+MODE = 1
+AUTO_PLAY = false
+
+[node name="CollisionShape2D" parent="." index="3"]
+visible = false
+disabled = true
+
+[node name="reflection" type="Area2D" parent="." index="4"]
+collision_layer = 0
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="reflection" index="0"]
+shape = SubResource( 3 )
+
+[node name="animation" parent="." index="5"]
+anims/animation = SubResource( 4 )
+anims/animation_reverse = SubResource( 7 )
+anims/hold = SubResource( 5 )
+
+[node name="light" type="Light2D" parent="." index="6"]
+texture = ExtResource( 8 )
+texture_scale = 0.35
+color = Color( 0.470588, 0.819608, 0.827451, 1 )
+energy = 1.5
+mode = 2
+script = ExtResource( 9 )
+
+[connection signal="area_entered" from="reflection" to="." method="_on_reflection_area_entered"]
+
+[editable path="entity_sprite"]
+[editable path="hitbox"]

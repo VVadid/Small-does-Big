@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/projectile.mp3-fb33a50663349e090c31c4ff8a7c9a33.mp3str"
+
+[deps]
+
+source_file="res://Levels/A/projectile.mp3"
+dest_files=[ "res://.import/projectile.mp3-fb33a50663349e090c31c4ff8a7c9a33.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

@@ -1,0 +1,156 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://UI/Themes/general_theme.tres" type="Theme" id=1]
+[ext_resource path="res://Levels/hub/level_node/level_node.png" type="Texture" id=2]
+[ext_resource path="res://Levels/hub/level_node/level_node.gd" type="Script" id=3]
+
+[sub_resource type="Animation" id=4]
+resource_name = "1"
+length = 0.4
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Area2D/Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 5, 6, 7, 8 ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "2"
+length = 0.4
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Area2D/Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3 ]
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "3"
+length = 0.4
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Area2D/Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 10, 11, 12, 13 ]
+}
+
+[sub_resource type="Animation" id=6]
+resource_name = "4"
+length = 0.4
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Area2D/Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 15, 16, 17, 18 ]
+}
+
+[sub_resource type="Animation" id=3]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Area2D/Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 1 ]
+}
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 32.0
+
+[node name="level_node" type="Node2D"]
+position = Vector2( 0, -0.365738 )
+z_index = -3
+script = ExtResource( 3 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/1 = SubResource( 4 )
+anims/2 = SubResource( 2 )
+anims/3 = SubResource( 5 )
+anims/4 = SubResource( 6 )
+anims/RESET = SubResource( 3 )
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2( 0, 0.7739 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Sprite" type="Sprite" parent="Area2D"]
+position = Vector2( 0, -0.408165 )
+scale = Vector2( 0.766667, 0.766667 )
+texture = ExtResource( 2 )
+hframes = 2
+vframes = 2
+frame = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+self_modulate = Color( 1, 1, 1, 0.392157 )
+shape = SubResource( 1 )
+
+[node name="Node2D" type="Node2D" parent="."]
+z_index = 4096
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="info" type="VBoxContainer" parent="Node2D"]
+visible = false
+margin_left = -50.0
+margin_top = -80.0
+margin_right = 50.0
+margin_bottom = -20.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 5
+theme = ExtResource( 1 )
+alignment = 1
+
+[node name="header" type="Label" parent="Node2D/info"]
+margin_top = 10.0
+margin_right = 162.0
+margin_bottom = 49.0
+theme = ExtResource( 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "level
+press [E] to enter"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_Area2D_body_exited"]

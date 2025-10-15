@@ -1,0 +1,27 @@
+{
+	"events": [
+		{
+			"character": "",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Is that... a frozen apple? It looks poisonous."
+		},
+		{
+			"character": "",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "I better not touch it. No telling what’s hiding in there."
+		},
+		{
+			"character": "character-1746222060.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Climate change is melting ice, bringing back old viruses and bacteria."
+		}
+	],
+	"metadata": {
+		"dialogic-version": "1.5.1",
+		"file": "timeline-1747564405.json",
+		"name": "Ice 5"
+	}
+}

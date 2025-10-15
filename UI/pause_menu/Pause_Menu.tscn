@@ -1,0 +1,115 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://UI/options/options.tscn" type="PackedScene" id=1]
+[ext_resource path="res://UI/smart_ui_nodes/smart_button/smart_button.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Components/sound_player/sound_player.tscn" type="PackedScene" id=3]
+[ext_resource path="res://UI/Themes/general_theme.tres" type="Theme" id=4]
+[ext_resource path="res://UI/Icons/gear.png" type="Texture" id=5]
+[ext_resource path="res://UI/Icons/x.png" type="Texture" id=6]
+[ext_resource path="res://UI/Icons/play.png" type="Texture" id=7]
+[ext_resource path="res://UI/Icons/exit.png" type="Texture" id=8]
+[ext_resource path="res://UI/pause_menu/menu_pause.wav" type="AudioStream" id=9]
+[ext_resource path="res://UI/pause_menu/menu_unpause.wav" type="AudioStream" id=10]
+[ext_resource path="res://UI/pause_menu/pause_menu.gd" type="Script" id=11]
+[ext_resource path="res://UI/Icons/restart.png" type="Texture" id=12]
+
+[node name="pause_menu" type="ColorRect"]
+pause_mode = 2
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+rect_clip_content = true
+focus_mode = 2
+theme = ExtResource( 4 )
+color = Color( 0, 0, 0, 0.705882 )
+script = ExtResource( 11 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+PAUSE_SOUND = ExtResource( 9 )
+UNPAUSE_SOUND = ExtResource( 10 )
+
+[node name="items" type="VBoxContainer" parent="."]
+margin_left = 102.0
+margin_top = 10.0
+margin_right = 281.0
+margin_bottom = 206.0
+grow_horizontal = 2
+grow_vertical = 2
+focus_mode = 2
+size_flags_horizontal = 4
+alignment = 1
+
+[node name="title" type="Label" parent="items"]
+margin_top = 22.0
+margin_right = 179.0
+margin_bottom = 38.0
+text = "paused"
+align = 1
+valign = 1
+
+[node name="HSeparator" type="HSeparator" parent="items"]
+margin_top = 42.0
+margin_right = 179.0
+margin_bottom = 43.0
+
+[node name="resume" parent="items" instance=ExtResource( 2 )]
+margin_top = 47.0
+margin_right = 179.0
+margin_bottom = 69.0
+focus_neighbour_top = NodePath("../quit")
+custom_constants/hseparation = -16
+text = "resume"
+icon = ExtResource( 7 )
+flat = true
+
+[node name="options" parent="items" instance=ExtResource( 2 )]
+margin_top = 73.0
+margin_right = 179.0
+margin_bottom = 95.0
+custom_constants/hseparation = -16
+text = "options"
+icon = ExtResource( 5 )
+flat = true
+
+[node name="restart" parent="items" instance=ExtResource( 2 )]
+margin_top = 99.0
+margin_right = 179.0
+margin_bottom = 121.0
+custom_constants/hseparation = -13
+text = "restart level"
+icon = ExtResource( 12 )
+flat = true
+
+[node name="return_to" parent="items" instance=ExtResource( 2 )]
+margin_top = 125.0
+margin_right = 179.0
+margin_bottom = 147.0
+custom_constants/hseparation = -10
+text = "return to hub"
+icon = ExtResource( 8 )
+flat = true
+
+[node name="quit" parent="items" instance=ExtResource( 2 )]
+margin_top = 151.0
+margin_right = 179.0
+margin_bottom = 173.0
+focus_neighbour_bottom = NodePath("../resume")
+custom_constants/hseparation = -16
+text = "quit"
+icon = ExtResource( 6 )
+flat = true
+
+[node name="Options" parent="." instance=ExtResource( 1 )]
+visible = false
+
+[node name="sound_player" parent="." instance=ExtResource( 3 )]
+
+[connection signal="pressed" from="items/resume" to="." method="_on_resume_pressed"]
+[connection signal="pressed" from="items/options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="items/restart" to="." method="_on_restart_pressed"]
+[connection signal="pressed" from="items/return_to" to="." method="_on_return_to_pressed"]
+[connection signal="pressed" from="items/quit" to="." method="_on_quit_pressed"]
+[connection signal="closed" from="Options" to="." method="_on_Options_closed"]

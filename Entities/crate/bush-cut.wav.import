@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/bush-cut.wav-85253b03f2727ce160107280dcf30dd1.mp3str"
+
+[deps]
+
+source_file="res://Entities/crate/bush-cut.wav"
+dest_files=[ "res://.import/bush-cut.wav-85253b03f2727ce160107280dcf30dd1.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

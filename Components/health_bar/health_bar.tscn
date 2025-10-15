@@ -1,0 +1,87 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://Components/health_bar/health_bar.gd" type="Script" id=1]
+[ext_resource path="res://Components/health_bar/health_bar_under.png" type="Texture" id=2]
+[ext_resource path="res://Components/health_bar/health_bar_progress.png" type="Texture" id=3]
+[ext_resource path="res://Components/health_bar/armor_meter_over.png" type="Texture" id=4]
+[ext_resource path="res://Components/health_bar/armor_meter_under.png" type="Texture" id=5]
+[ext_resource path="res://Components/health_bar/armor.png" type="Texture" id=6]
+[ext_resource path="res://Components/health_bar/armor_missing.png" type="Texture" id=7]
+
+[sub_resource type="Gradient" id=1]
+offsets = PoolRealArray( 0, 0.144928, 0.458937, 0.864734, 1 )
+colors = PoolColorArray( 0.94902, 0.0745098, 0.0745098, 1, 0.94902, 0.0745098, 0.0745098, 1, 0.916814, 0.941406, 0.154449, 1, 0.117647, 0.572549, 0.0666667, 1, 0.117647, 0.572549, 0.0666667, 1 )
+
+[sub_resource type="Gradient" id=2]
+colors = PoolColorArray( 0.94902, 0.92549, 0.588235, 0.705882, 0.976563, 0.965476, 0.267029, 1 )
+
+[sub_resource type="Gradient" id=3]
+colors = PoolColorArray( 0.328476, 0.53051, 0.816406, 1, 0.179596, 0.297532, 0.835938, 1 )
+
+[node name="health_bar" type="TextureProgress"]
+margin_right = 11.0
+margin_bottom = 4.00174
+max_value = 5.0
+step = 0.001
+value = 5.0
+texture_under = ExtResource( 2 )
+texture_progress = ExtResource( 3 )
+script = ExtResource( 1 )
+PROGRESS_GRAD = SubResource( 1 )
+BONUS_GRAD = SubResource( 2 )
+ARMOR_GRAD = SubResource( 3 )
+
+[node name="bonus" type="TextureProgress" parent="."]
+visible = false
+margin_right = 40.0
+margin_bottom = 40.0
+step = 0.001
+value = 47.5
+texture_progress = ExtResource( 3 )
+tint_progress = Color( 0.964706, 0.768627, 0.247059, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="armors_missing" type="TextureRect" parent="."]
+visible = false
+margin_left = -0.124714
+margin_top = -6.14211
+margin_right = 6.0
+margin_bottom = -0.142115
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource( 7 )
+stretch_mode = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="armors" type="TextureRect" parent="."]
+margin_left = 2.0
+margin_top = -6.0
+margin_right = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource( 6 )
+stretch_mode = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="armor_meter" type="TextureProgress" parent="."]
+visible = false
+margin_left = 5.48008
+margin_top = -12.8111
+margin_right = 45.4801
+margin_bottom = 27.1889
+step = 0.001
+value = 60.0
+texture_under = ExtResource( 5 )
+texture_progress = ExtResource( 4 )
+fill_mode = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="tree_entered" from="." to="." method="_on_healthBar_tree_entered"]

@@ -1,0 +1,248 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://UI/Themes/general_theme.tres" type="Theme" id=1]
+[ext_resource path="res://UI/level_completed/level_completed.gd" type="Script" id=2]
+[ext_resource path="res://UI/level_completed/damage_taken_icon.png" type="Texture" id=3]
+[ext_resource path="res://UI/level_completed/time_icon.png" type="Texture" id=4]
+[ext_resource path="res://UI/smart_ui_nodes/smart_button/smart_button.tscn" type="PackedScene" id=5]
+[ext_resource path="res://UI/Icons/play.png" type="Texture" id=6]
+[ext_resource path="res://UI/Icons/restart.png" type="Texture" id=7]
+
+[sub_resource type="Animation" id=1]
+resource_name = "animation"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("area/body/damage/Label:percent_visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.4, 0.8 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, 0.0, 1.0 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("area/body/time/Label:percent_visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.6, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 0.0, 0.0, 1.0 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("area/body/damage/comment:percent_visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.8 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 0.0, 1.0 ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("area/body/time/comment:percent_visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 0.0, 1.0 ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("area/body/damage:rect_position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 0.25, 1 ),
+"update": 0,
+"values": [ Vector2( -200, 0 ), Vector2( 0, 0 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("area/body/time:rect_position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 0.25, 1 ),
+"update": 0,
+"values": [ Vector2( 376, 0 ), Vector2( 176, 0 ) ]
+}
+
+[node name="level_completed" type="ColorRect"]
+pause_mode = 2
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 1 )
+color = Color( 0, 0, 0, 0.705882 )
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="area" type="VBoxContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 20.0
+margin_top = 20.0
+margin_right = -20.0
+margin_bottom = -20.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="header" type="VBoxContainer" parent="area"]
+margin_right = 344.0
+margin_bottom = 21.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="label" type="Label" parent="area/header"]
+margin_right = 344.0
+margin_bottom = 16.0
+text = "level completed"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HSeparator" type="HSeparator" parent="area/header"]
+margin_top = 20.0
+margin_right = 344.0
+margin_bottom = 21.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="body" type="HBoxContainer" parent="area"]
+margin_top = 25.0
+margin_right = 344.0
+margin_bottom = 145.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+alignment = 1
+
+[node name="damage" type="VBoxContainer" parent="area/body"]
+margin_right = 167.0
+margin_bottom = 120.0
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="icon" type="TextureRect" parent="area/body/damage"]
+margin_left = 53.0
+margin_top = 10.0
+margin_right = 114.0
+margin_bottom = 70.0
+size_flags_horizontal = 4
+texture = ExtResource( 3 )
+
+[node name="Label" type="Label" parent="area/body/damage"]
+margin_top = 74.0
+margin_right = 167.0
+margin_bottom = 90.0
+text = "damage taken: "
+align = 1
+
+[node name="comment" type="Label" parent="area/body/damage"]
+margin_top = 94.0
+margin_right = 167.0
+margin_bottom = 110.0
+align = 1
+
+[node name="VSeparator" type="VSeparator" parent="area/body"]
+margin_left = 171.0
+margin_right = 172.0
+margin_bottom = 120.0
+
+[node name="time" type="VBoxContainer" parent="area/body"]
+margin_left = 176.0
+margin_right = 344.0
+margin_bottom = 120.0
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="icon" type="TextureRect" parent="area/body/time"]
+margin_left = 55.0
+margin_top = 8.0
+margin_right = 113.0
+margin_bottom = 71.0
+size_flags_horizontal = 4
+texture = ExtResource( 4 )
+
+[node name="Label" type="Label" parent="area/body/time"]
+margin_top = 75.0
+margin_right = 168.0
+margin_bottom = 91.0
+text = "time: "
+align = 1
+
+[node name="comment" type="Label" parent="area/body/time"]
+margin_top = 95.0
+margin_right = 168.0
+margin_bottom = 111.0
+align = 1
+
+[node name="HSeparator" type="HSeparator" parent="area"]
+margin_top = 149.0
+margin_right = 344.0
+margin_bottom = 150.0
+
+[node name="footer" type="HBoxContainer" parent="area"]
+margin_top = 154.0
+margin_right = 344.0
+margin_bottom = 176.0
+alignment = 1
+
+[node name="proceed" parent="area/footer" instance=ExtResource( 5 )]
+margin_left = 96.0
+margin_right = 175.0
+margin_bottom = 22.0
+text = "proceed"
+icon = ExtResource( 6 )
+flat = true
+
+[node name="replay" parent="area/footer" instance=ExtResource( 5 )]
+margin_left = 179.0
+margin_right = 247.0
+margin_bottom = 22.0
+text = "replay"
+icon = ExtResource( 7 )
+flat = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/animation = SubResource( 1 )
+
+[connection signal="pressed" from="area/footer/proceed" to="." method="_on_proceed_pressed"]
+[connection signal="pressed" from="area/footer/replay" to="." method="_on_replay_pressed"]

@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/spit-36265.mp3-03967e3ff52f7afa8338187081dff875.mp3str"
+
+[deps]
+
+source_file="res://Entities/drone/spit-36265.mp3"
+dest_files=[ "res://.import/spit-36265.mp3-03967e3ff52f7afa8338187081dff875.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

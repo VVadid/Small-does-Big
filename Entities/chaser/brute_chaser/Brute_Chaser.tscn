@@ -1,0 +1,48 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Entities/chaser/brute_chaser/brute chaser.png" type="Texture" id=1]
+[ext_resource path="res://Entities/chaser/PlasticBottle.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Components/stats/status_effects/regeneration/regeneration.tscn" type="PackedScene" id=3]
+
+[sub_resource type="ShaderMaterial" id=1]
+resource_local_to_scene = true
+
+[node name="brute_chaser" instance=ExtResource( 2 )]
+ACCELERATION = 125
+SLOWDOWN = 300
+TOP_SPEED = 50
+FORCE_MULT = 0.6
+truName = "brute_chaser"
+
+[node name="stats" parent="." index="0"]
+MAX_HEALTH = 4
+HEALTH = 4
+DAMAGE = 2
+
+[node name="regeneration" parent="stats" index="0" instance=ExtResource( 3 )]
+level = 0.25
+DURATION_TIME = 999.0
+
+[node name="sprite" parent="." index="1"]
+material = SubResource( 1 )
+scale = Vector2( 1, 1 )
+texture = ExtResource( 1 )
+vframes = 1
+
+[node name="CollisionShape2D" parent="." index="3"]
+visible = false
+position = Vector2( 0, 5.23597 )
+
+[node name="hitbox" parent="." index="4"]
+KNOCKBACK = 140
+
+[node name="hurtbox" parent="." index="5"]
+position = Vector2( 0, 2.05111 )
+
+[node name="healthBar" parent="." index="9"]
+visible = false
+
+[editable path="hitbox"]
+[editable path="hurtbox"]
+[editable path="entityPush"]
+[editable path="brain"]

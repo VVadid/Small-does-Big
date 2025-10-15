@@ -1,0 +1,106 @@
+[gd_scene load_steps=17 format=2]
+
+[ext_resource path="res://Entities/pylon/pylon.gd" type="Script" id=1]
+[ext_resource path="res://Components/sprite/entity_sprite.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Components/stats/stats.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Components/hurtbox/hurtbox.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Components/entity_push/entity_push.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Components/brain/brain.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Effects/entity_effects/entity_effects.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Components/sprite/shadow0.png" type="Texture" id=8]
+[ext_resource path="res://Entities/pylon/pylon.png" type="Texture" id=9]
+[ext_resource path="res://Components/health_bar/health_bar.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Entities/pylon/pylon_destroyed.wav" type="AudioStream" id=11]
+[ext_resource path="res://Components/sound_player/sound_player.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Effects/light.png" type="Texture" id=13]
+[ext_resource path="res://Effects/LightSource.gd" type="Script" id=14]
+
+[sub_resource type="ShaderMaterial" id=1]
+resource_local_to_scene = true
+
+[sub_resource type="CircleShape2D" id=2]
+
+[node name="pylon" type="KinematicBody2D"]
+collision_layer = 2
+script = ExtResource( 1 )
+STATIC = true
+INANIMATE = true
+truName = "pylon"
+faction = "blue_kingdom"
+
+[node name="stats" parent="." instance=ExtResource( 3 )]
+MAX_HEALTH = 2
+HEALTH = 2
+DAMAGE = 0
+TRUE_DAMAGE = 1
+poison_modifier = -99.0
+burning_modifier = -5.0
+bleed_modifier = -99.0
+speed_modifier = -99.0
+slowness_modifier = -99.0
+regeneration_modifier = -99.0
+resistance_modifier = -99.0
+infection_modifier = -99.0
+
+[node name="delay" type="Timer" parent="."]
+wait_time = 0.7
+one_shot = true
+autostart = true
+
+[node name="entity_sprite" parent="." instance=ExtResource( 2 )]
+material = SubResource( 1 )
+texture = ExtResource( 9 )
+auto_flip_mode = 0
+
+[node name="shadow" parent="entity_sprite" index="0"]
+position = Vector2( 0, 0 )
+texture = ExtResource( 8 )
+offset = Vector2( 0, -1 )
+
+[node name="brain" parent="." instance=ExtResource( 6 )]
+TOLERANCE = 20
+SIGHT_RANGE = 160.0
+COMMUNICATES = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+shape = SubResource( 2 )
+
+[node name="hurtbox" parent="." instance=ExtResource( 4 )]
+visible = false
+KILLED_SOUND = ExtResource( 11 )
+
+[node name="CollisionShape2D" parent="hurtbox" index="0"]
+shape = SubResource( 2 )
+
+[node name="entity_push" parent="." instance=ExtResource( 5 )]
+visible = false
+
+[node name="CollisionShape2D" parent="entity_push" index="0"]
+shape = SubResource( 2 )
+
+[node name="entity_effects" parent="." instance=ExtResource( 7 )]
+death_type = -1
+
+[node name="health_bar" parent="." instance=ExtResource( 10 )]
+margin_left = -10.2646
+margin_top = -10.5006
+margin_right = 10.7354
+margin_bottom = -6.49886
+
+[node name="sound_player" parent="." instance=ExtResource( 12 )]
+
+[node name="light" type="Light2D" parent="."]
+texture = ExtResource( 13 )
+texture_scale = 0.23
+color = Color( 0.592157, 0.92549, 0.854902, 1 )
+energy = 1.5
+mode = 2
+script = ExtResource( 14 )
+
+[connection signal="timeout" from="delay" to="." method="_on_delay_timeout"]
+[connection signal="found_target" from="brain" to="." method="_on_brain_found_target"]
+
+[editable path="entity_sprite"]
+[editable path="hurtbox"]
+[editable path="entity_push"]

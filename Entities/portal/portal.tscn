@@ -1,0 +1,263 @@
+[gd_scene load_steps=14 format=2]
+
+[ext_resource path="res://Entities/portal/blue_portal.png" type="Texture" id=1]
+[ext_resource path="res://Entities/portal/portal.gd" type="Script" id=2]
+[ext_resource path="res://Entities/portal/orange_portal.png" type="Texture" id=3]
+[ext_resource path="res://Components/sound_player/sound_player.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Entities/portal/warp.wav" type="AudioStream" id=5]
+[ext_resource path="res://Components/sound_player/sound/sound.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Entities/portal/orange_particles.tres" type="Material" id=7]
+[ext_resource path="res://Entities/portal/blue_particles.tres" type="Material" id=8]
+[ext_resource path="res://Effects/LightSource.gd" type="Script" id=9]
+[ext_resource path="res://Effects/light.png" type="Texture" id=10]
+
+[sub_resource type="CircleShape2D" id=1]
+
+[sub_resource type="Animation" id=2]
+loop = true
+step = 0.25
+tracks/0/type = "value"
+tracks/0/path = NodePath("blue_portal/Sprite:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.25, 0.5, 0.75 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0.0, 90.0, 180.0, 270.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("orange_portal/Sprite:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.25, 0.5, 0.75 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0.0, 90.0, 180.0, 270.0 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("blue_portal/CollisionShape2D:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("orange_portal/CollisionShape2D:disabled")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "fade"
+step = 0.25
+tracks/0/type = "value"
+tracks/0/path = NodePath("blue_portal/Sprite:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.25, 0.5, 0.75 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0.0, 90.0, 180.0, 270.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("orange_portal/Sprite:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.25, 0.5, 0.75 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0.0, 90.0, 180.0, 270.0 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("blue_portal/Sprite:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 0.001, 0.001 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("orange_portal/Sprite:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 0.001, 0.001 ) ]
+}
+tracks/4/type = "method"
+tracks/4/path = NodePath(".")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 1 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "queue_free"
+} ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("blue_portal/CollisionShape2D:disabled")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("orange_portal/CollisionShape2D:disabled")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+
+[node name="portal" type="KinematicBody2D"]
+z_index = 5
+collision_mask = 0
+script = ExtResource( 2 )
+STATIC = true
+TOP_SPEED = 0
+FORCE_MULT = 0.0
+INANIMATE = true
+truName = "portal"
+
+[node name="blue_portal" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 82
+
+[node name="Sprite" type="Sprite" parent="blue_portal"]
+texture = ExtResource( 1 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="blue_portal"]
+visible = false
+shape = SubResource( 1 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="sound_player" parent="blue_portal" instance=ExtResource( 4 )]
+
+[node name="teleport" parent="blue_portal/sound_player" instance=ExtResource( 6 )]
+stream = ExtResource( 5 )
+bus = "Master"
+MODE = 1
+AUTO_PLAY = false
+
+[node name="blue_particles" type="Particles2D" parent="blue_portal"]
+emitting = false
+amount = 12
+lifetime = 0.7
+one_shot = true
+explosiveness = 1.0
+process_material = ExtResource( 8 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="LightSource" type="Light2D" parent="blue_portal"]
+texture = ExtResource( 10 )
+texture_scale = 0.2
+color = Color( 0.188235, 0.603922, 0.905882, 1 )
+energy = 1.1
+script = ExtResource( 9 )
+
+[node name="orange_portal" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 82
+
+[node name="Sprite" type="Sprite" parent="orange_portal"]
+texture = ExtResource( 3 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="orange_portal"]
+visible = false
+shape = SubResource( 1 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="sound_player" parent="orange_portal" instance=ExtResource( 4 )]
+
+[node name="teleport" parent="orange_portal/sound_player" instance=ExtResource( 6 )]
+stream = ExtResource( 5 )
+bus = "Master"
+MODE = 1
+AUTO_PLAY = false
+
+[node name="orange_particles" type="Particles2D" parent="orange_portal"]
+emitting = false
+amount = 12
+lifetime = 0.7
+one_shot = true
+explosiveness = 1.0
+process_material = ExtResource( 7 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="LightSource" type="Light2D" parent="orange_portal"]
+texture = ExtResource( 10 )
+texture_scale = 0.2
+color = Color( 0.905882, 0.505882, 0.188235, 1 )
+energy = 1.1
+script = ExtResource( 9 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "New Anim"
+playback_speed = 2.0
+"anims/New Anim" = SubResource( 2 )
+anims/fade = SubResource( 3 )
+
+[connection signal="body_entered" from="blue_portal" to="." method="_on_blue_portal_body_entered"]
+[connection signal="body_exited" from="blue_portal" to="." method="_on_link_a_body_exited"]
+[connection signal="body_entered" from="orange_portal" to="." method="_on_link_b_body_entered"]
+[connection signal="body_exited" from="orange_portal" to="." method="_on_link_b_body_exited"]

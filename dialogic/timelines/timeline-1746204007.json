@@ -1,0 +1,33 @@
+{
+	"events": [
+		{
+			"character": "",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "It's a plastic bottle!"
+		},
+		{
+			"character": "character-1746222060.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "These take up to 1000 years to break down."
+		},
+		{
+			"character": "",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Even then, they just turn into microplastics."
+		},
+		{
+			"character": "",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "I should defidently recycle this!"
+		}
+	],
+	"metadata": {
+		"dialogic-version": "1.5.1",
+		"file": "timeline-1746204007.json",
+		"name": "BottlePickUp"
+	}
+}

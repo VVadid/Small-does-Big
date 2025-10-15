@@ -1,0 +1,144 @@
+[gd_scene load_steps=18 format=2]
+
+[ext_resource path="res://Entities/specter/specter.gd" type="Script" id=1]
+[ext_resource path="res://Entities/specter/specter.png" type="Texture" id=2]
+[ext_resource path="res://Components/sprite/entity_sprite.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Components/hitbox/hitbox.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Components/hurtbox/hurtbox.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Components/stats/stats.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Components/brain/brain.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Components/entity_push/entity_push.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Components/brain/movement_lobe/movement_lobe.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Effects/entity_effects/entity_effects.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Components/health_bar/health_bar.tscn" type="PackedScene" id=12]
+
+[sub_resource type="ShaderMaterial" id=1]
+resource_local_to_scene = true
+
+[sub_resource type="Animation" id=2]
+resource_name = "duplicate"
+tracks/0/type = "value"
+tracks/0/path = NodePath("sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 1, 0 ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "spawn"
+tracks/0/type = "value"
+tracks/0/path = NodePath("sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 2, 3, 4, 5, 6, 7, 8, 9, 1, 0 ]
+}
+
+[sub_resource type="CircleShape2D" id=4]
+radius = 7.07107
+
+[sub_resource type="CircleShape2D" id=5]
+radius = 8.59761
+
+[sub_resource type="CircleShape2D" id=6]
+
+[node name="specter" type="KinematicBody2D"]
+collision_layer = 2
+collision_mask = 0
+script = ExtResource( 1 )
+ACCELERATION = 400
+SLOWDOWN = 400
+TOP_SPEED = 40
+FORCE_MULT = 0.0
+truName = "specter"
+faction = "monster"
+
+[node name="stats" parent="." instance=ExtResource( 6 )]
+MAX_HEALTH = 6
+HEALTH = 6
+DAMAGE = 2
+TRUE_DAMAGE = 1
+burning_modifier = 20.0
+
+[node name="sprite" parent="." instance=ExtResource( 3 )]
+modulate = Color( 1, 1, 1, 0.847059 )
+material = SubResource( 1 )
+position = Vector2( -0.445448, 4.58168 )
+scale = Vector2( 0.73, 0.73 )
+z_index = 99
+texture = ExtResource( 2 )
+hframes = 5
+vframes = 2
+frame = 2
+
+[node name="shadow" parent="sprite" index="0"]
+visible = false
+position = Vector2( 0, 12 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "spawn"
+anims/duplicate = SubResource( 2 )
+anims/spawn = SubResource( 3 )
+
+[node name="hitbox" parent="." instance=ExtResource( 4 )]
+visible = false
+position = Vector2( 0, 5 )
+COOLDOWN = 0.4
+KNOCKBACK = 190
+TEAM_ATTACK = false
+
+[node name="CollisionShape2D" parent="hitbox" index="0"]
+position = Vector2( 0, -1 )
+shape = SubResource( 4 )
+
+[node name="hurtbox" parent="." instance=ExtResource( 5 )]
+visible = false
+
+[node name="CollisionShape2D" parent="hurtbox" index="0"]
+position = Vector2( 0, 5 )
+shape = SubResource( 5 )
+
+[node name="brain" parent="." instance=ExtResource( 7 )]
+WALLHACKS = true
+
+[node name="movement_lobe" parent="brain" instance=ExtResource( 10 )]
+
+[node name="entityPush" parent="." instance=ExtResource( 8 )]
+visible = false
+position = Vector2( 0, 2 )
+
+[node name="CollisionShape2D" parent="entityPush" index="0"]
+position = Vector2( 0, 3 )
+shape = SubResource( 6 )
+
+[node name="dup_timer" type="Timer" parent="."]
+wait_time = 6.0
+autostart = true
+
+[node name="entity_effects" parent="." instance=ExtResource( 11 )]
+death_type = 0
+
+[node name="health_bar" parent="." instance=ExtResource( 12 )]
+margin_left = -9.79988
+margin_top = -6.57038
+margin_right = 12.2001
+margin_bottom = -2.56864
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
+[connection signal="timeout" from="dup_timer" to="." method="_on_dup_timer_timeout"]
+
+[editable path="sprite"]
+[editable path="hitbox"]
+[editable path="hurtbox"]
+[editable path="entityPush"]

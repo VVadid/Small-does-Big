@@ -1,0 +1,87 @@
+{
+	"events": [
+		{
+			"character": "",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "It’s freezing out here, but I won’t let that stop me."
+		},
+		{
+			"character": "",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Every step feels heavier in this cold, but I have to keep moving."
+		},
+		{
+			"character": "character-1746222060.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Ice caps and glaciers are melting faster than ever, causing drastic changes to cold climates."
+		},
+		{
+			"character": "",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "There’s only one plasmaror left between me and the seedbank."
+		},
+		{
+			"character": "",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "I’ve fought hard to get this far, and I’m not giving up now."
+		},
+		{
+			"character": "",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "My village is counting on me."
+		},
+		{
+			"character": "",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Without those seeds, their future looks bleak."
+		},
+		{
+			"character": "",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "The climate is broken, poisoned by years of neglect and war."
+		},
+		{
+			"character": "",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "But I still believe there’s a chance to heal it."
+		},
+		{
+			"character": "",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "I have to believe that, or none of this means anything."
+		},
+		{
+			"character": "",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "I carry their hopes with me on this journey."
+		},
+		{
+			"character": "",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "When I bring those seeds back, I’ll give my village a chance to grow again."
+		},
+		{
+			"character": "",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "That’s why I can’t stop, not now, not ever."
+		}
+	],
+	"metadata": {
+		"dialogic-version": "1.5.1",
+		"file": "timeline-1747564320.json",
+		"name": "Ice 1"
+	}
+}
