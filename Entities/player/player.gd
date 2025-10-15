@@ -109,6 +109,10 @@ func _physics_process(_delta):
 		if input_vector.y < 0 and abs(input_vector.y) >= abs(input_vector.x):
 			animation.play("run_back")
 			last_movement_was_upward = true
+		elif input_vector.y > 0 and abs(input_vector.y) >= abs(input_vector.x):
+			# Moving directly down - use run_front animation
+			animation.play("run_front")
+			last_movement_was_upward = false
 		else:
 			animation.play("run")
 			last_movement_was_upward = false
