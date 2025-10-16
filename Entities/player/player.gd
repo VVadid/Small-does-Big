@@ -14,6 +14,9 @@ var damage_taken = 0
 var death_message: String = "death message missing :("
 var damage_pause_count: int = 0
 
+# Trash interaction variables
+var near_trash = null
+var interaction_cooldown = false
 
 export var dash_strength = 300
 export var dash_buffer = 8
@@ -92,7 +95,9 @@ func _physics_process(_delta):
 		sprite.flip_h = false
 	elif input_vector.x < 0:  # Moving left
 		sprite.flip_h = true
-	# (No else case - maintains current flip when moving straight up/down)
+	
+	# TRASH INTERACTION: Check for nearby trash
+	check_nearby_trash()
 
 	# Animation control
 	if animation.current_animation == "dash" or animation.current_animation == "dash_back":
@@ -151,6 +156,10 @@ func _input(_event: InputEvent) -> void:
 			elif dash_cooldown.time_left <= dash_buffer:
 				buffered_dash = input_vector
 
+	# TRASH INTERACTION: E key to pick up trash
+	if Input.is_action_just_pressed("interact") and near_trash and movement_enabled:
+		interact_with_trash()
+
 	# for item switching:
 	if get_name() == "player":
 		if Input.is_action_just_pressed("swap_right"):
@@ -177,6 +186,27 @@ func _input(_event: InputEvent) -> void:
 		
 		if inventory[global.selection] == null:
 				Input.set_custom_mouse_cursor(CURSOR_EMPTY, Input.CURSOR_ARROW, Vector2(22.5, 22.5))
+
+# TRASH INTERACTION FUNCTIONS
+func check_nearby_trash():
+	# Check for trash in interaction area
+	var overlap = $hurtbox.get_overlapping_areas()  # Using existing hurtbox
+	near_trash = null
+	
+	for area in overlap:
+		if area.is_in_group("trash"):
+			near_trash = area
+			# You could add visual feedback here like highlighting the trash
+			break
+
+func interact_with_trash():
+	if near_trash and near_trash.has_method("collect_trash") and not interaction_cooldown:
+		interaction_cooldown = true
+		near_trash.collect_trash(self)
+		
+		# Brief cooldown to prevent multiple rapid collections
+		yield(get_tree().create_timer(0.3), "timeout")
+		interaction_cooldown = false
 
 func swapped_item(new_item):
 	if new_item == null:
