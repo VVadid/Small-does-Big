@@ -5,6 +5,7 @@
 	"folders": {
 		"Characters": {
 			"files": [
+				"character-1760693522.json",
 				"character-1746818193.json",
 				"character-1746222060.json",
 				"character-1745393033.json",
@@ -15,7 +16,7 @@
 			},
 			"metadata": {
 				"color": null,
-				"folded": true
+				"folded": false
 			}
 		},
 		"Definitions": {
@@ -86,7 +87,7 @@
 					},
 					"metadata": {
 						"color": null,
-						"folded": true
+						"folded": false
 					}
 				},
 				"Level 4": {

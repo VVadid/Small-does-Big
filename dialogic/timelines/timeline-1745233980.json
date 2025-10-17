@@ -23,17 +23,23 @@
 		{
 			"character": "character-1745233534.json",
 			"event_id": "dialogic_001",
-			"text": "You feel it too, don't you? The land... it weeps."
+			"text": "You!"
 		},
 		{
 			"character": "character-1745233534.json",
 			"event_id": "dialogic_001",
-			"text": "Your path begins with the spear. But it won't be enough for long."
+			"text": "How old are you?"
+		},
+		{
+			"character": "character-1760693522.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Uhhh... I'm 16 years old..."
 		},
 		{
 			"character": "character-1745233534.json",
 			"event_id": "dialogic_001",
-			"text": "Cleanse what you can. Restore what we lost."
+			"text": "You are what this world needs..."
 		},
 		{
 			"animation": "bounce_out.gd",

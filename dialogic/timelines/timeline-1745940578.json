@@ -1,34 +1,34 @@
 {
 	"events": [
 		{
-			"character": "",
+			"character": "character-1760693522.json",
 			"event_id": "dialogic_001",
 			"portrait": "",
-			"text": "...What’s this?"
+			"text": "Oh!"
 		},
 		{
 			"character": "",
 			"event_id": "dialogic_001",
 			"portrait": "",
-			"text": "A recycling bin... blocking the way?"
+			"text": "A recycling bin is blocking the way!"
 		},
 		{
-			"character": "",
+			"character": "character-1760693522.json",
 			"event_id": "dialogic_001",
 			"portrait": "",
-			"text": "It won’t open unless I toss something in."
+			"text": "It won’t open unless I toss something in!."
 		},
 		{
-			"character": "",
+			"character": "character-1760693522.json",
 			"event_id": "dialogic_001",
 			"portrait": "",
 			"text": "Guess I’ll need some trash to recycle."
 		},
 		{
-			"character": "",
+			"character": "character-1760693522.json",
 			"event_id": "dialogic_001",
 			"portrait": "",
-			"text": "Maybe there's something useful down the path to the left."
+			"text": "I need to look for some trash."
 		}
 	],
 	"metadata": {

@@ -1,13 +1,14 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://NPC/NPC1.gd" type="Script" id=1]
-[ext_resource path="res://NPC/Enteties/clothes/dress_jump.png" type="Texture" id=2]
+[ext_resource path="res://NPC/Enteties/clothes/suit_jump.png" type="Texture" id=2]
 [ext_resource path="res://addons/dialogic/Dialog.tscn" type="PackedScene" id=3]
 [ext_resource path="res://NPC/Enteties/char1_jump.png" type="Texture" id=4]
-[ext_resource path="res://NPC/Enteties/hair/ponytail_jump.png" type="Texture" id=5]
-[ext_resource path="res://NPC/Enteties/acc/glasses_jump.png" type="Texture" id=6]
+[ext_resource path="res://NPC/Enteties/hair/gentleman_jump.png" type="Texture" id=5]
+[ext_resource path="res://NPC/Enteties/acc/hat_cowboy_jump.png" type="Texture" id=6]
 [ext_resource path="res://UI/Buttons Pack/KEYBOARD/KEYS/E.png" type="Texture" id=7]
 [ext_resource path="res://Components/sprite/shadow1.png" type="Texture" id=8]
+[ext_resource path="res://NPC/Enteties/clothes/pants_suit_jump.png" type="Texture" id=9]
 
 [sub_resource type="CircleShape2D" id=6]
 radius = 26.0768
@@ -161,7 +162,7 @@ tracks/3/keys = {
 "times": PoolRealArray( 0, 0.5 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 1,
-"values": [ 100, 101 ]
+"values": [ 10, 11 ]
 }
 
 [sub_resource type="RectangleShape2D" id=10]
@@ -202,17 +203,23 @@ vframes = 4
 frame = 115
 
 [node name="Acc" type="Sprite" parent="Root"]
-visible = false
 texture = ExtResource( 6 )
-hframes = 50
+hframes = 5
 vframes = 4
-frame = 100
+frame = 10
 
 [node name="Hair" type="Sprite" parent="Root"]
+visible = false
 texture = ExtResource( 5 )
 hframes = 70
 vframes = 4
 frame = 140
+
+[node name="Clothes2" type="Sprite" parent="Root"]
+texture = ExtResource( 9 )
+hframes = 50
+vframes = 4
+frame = 100
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "Button"
@@ -221,6 +228,7 @@ anims/RESET = SubResource( 7 )
 anims/idle = SubResource( 8 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2( 0.5, 9 )
 shape = SubResource( 10 )
 
@@ -230,6 +238,6 @@ position = Vector2( 0, -12 )
 scale = Vector2( 0.7, 0.7 )
 texture = ExtResource( 7 )
 
-[connection signal="body_entered" from="DetectionArea" to="." method="_on_DetectionArea_body_entered"]
 [connection signal="body_entered" from="DetectionArea" to="." method="_on_Area2D_body_entered"]
+[connection signal="body_entered" from="DetectionArea" to="." method="_on_DetectionArea_body_entered"]
 [connection signal="body_exited" from="DetectionArea" to="." method="_on_DetectionArea_body_exited"]

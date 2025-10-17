@@ -67,23 +67,23 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-margin_left = -52.0
-margin_top = -40.0
-margin_right = 52.0
+margin_left = 189.0
+margin_top = -108.575
+margin_right = 293.0
+margin_bottom = -68.575
+rect_rotation = 90.0
 texture = ExtResource( 1 )
 stretch_mode = 3
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="left_icon" type="TextureRect" parent="bar"]
 material = SubResource( 1 )
 margin_left = 9.0
-margin_top = 9.42503
+margin_top = 23.0
 margin_right = 23.0
-margin_bottom = 23.425
+margin_bottom = 37.0
 grow_horizontal = 2
 grow_vertical = 2
+rect_rotation = -90.7
 rect_clip_content = true
 expand = true
 stretch_mode = 1
@@ -92,10 +92,11 @@ stretch_mode = 1
 material = SubResource( 2 )
 anchor_left = 0.33
 anchor_right = 0.33
-margin_left = 8.67999
-margin_top = 9.42503
+margin_left = 8.68
+margin_top = 23.0
 margin_right = 22.68
-margin_bottom = 23.425
+margin_bottom = 37.0
+rect_rotation = -90.0
 stretch_mode = 4
 __meta__ = {
 "_edit_use_anchors_": false
@@ -106,15 +107,13 @@ material = SubResource( 3 )
 anchor_left = 0.65
 anchor_right = 0.65
 margin_left = 9.4
-margin_top = 9.42503
+margin_top = 23.0
 margin_right = 23.4
-margin_bottom = 23.425
+margin_bottom = 37.0
 grow_horizontal = 2
 grow_vertical = 2
+rect_rotation = -90.0
 stretch_mode = 4
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 anchor_top = 1.0
@@ -123,9 +122,6 @@ margin_left = 2.0
 margin_top = -24.0
 margin_right = 58.0
 margin_bottom = -6.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="passive1" type="TextureRect" parent="HBoxContainer"]
 material = SubResource( 4 )
