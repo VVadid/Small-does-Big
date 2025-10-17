@@ -19,7 +19,7 @@ script = ExtResource( 1 )
 
 [node name="DialogicControl" parent="." instance=ExtResource( 3 )]
 visible = false
-timeline = "timeline-1746169847.json"
+timeline = "timeline-1746204007.json"
 
 [node name="DetectionArea" type="Area2D" parent="."]
 
@@ -31,6 +31,6 @@ autoplay = "idle"
 anims/RESET = SubResource( 7 )
 anims/idle = SubResource( 8 )
 
-[connection signal="body_entered" from="DetectionArea" to="." method="_on_DetectionArea_body_entered"]
 [connection signal="body_entered" from="DetectionArea" to="." method="_on_Area2D_body_entered"]
+[connection signal="body_entered" from="DetectionArea" to="." method="_on_DetectionArea_body_entered"]
 [connection signal="body_exited" from="DetectionArea" to="." method="_on_DetectionArea_body_exited"]

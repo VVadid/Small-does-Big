@@ -1,33 +1,100 @@
 {
 	"events": [
 		{
-			"character": "",
+			"animation": "bouncing_in.gd",
+			"animation_length": 0,
+			"change_mirror_portrait": false,
+			"change_z_index": false,
+			"character": "character-1745233534.json",
+			"event_id": "dialogic_002",
+			"mirror_portrait": false,
+			"portrait": "Default",
+			"portrait_definition": "",
+			"position": {
+				"0": false,
+				"1": false,
+				"2": true,
+				"3": false,
+				"4": false
+			},
+			"type": 0,
+			"z_index": 0
+		},
+		{
+			"character": "character-1745233534.json",
+			"event_id": "dialogic_001",
+			"text": "You!"
+		},
+		{
+			"character": "character-1745233534.json",
+			"event_id": "dialogic_001",
+			"text": "How old are you?"
+		},
+		{
+			"character": "character-1760693522.json",
 			"event_id": "dialogic_001",
 			"portrait": "",
-			"text": "It's a plastic bottle!"
+			"text": "Uhhh... I'm 16 years old..."
+		},
+		{
+			"character": "character-1745233534.json",
+			"event_id": "dialogic_001",
+			"text": "You are what this world needs!!!"
+		},
+		{
+			"character": "character-1745233534.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "The world is slowly dying.."
 		},
 		{
 			"character": "character-1746222060.json",
 			"event_id": "dialogic_001",
 			"portrait": "",
-			"text": "These take up to 1000 years to break down."
+			"text": "And by the next century, climate change could severely disrupt ecosystems and human life worldwide."
 		},
 		{
-			"character": "",
+			"character": "character-1745233534.json",
 			"event_id": "dialogic_001",
 			"portrait": "",
-			"text": "Even then, they just turn into microplastics."
+			"text": "Countinue in this path and make your own decisions."
 		},
 		{
-			"character": "",
+			"character": "character-1745233534.json",
 			"event_id": "dialogic_001",
 			"portrait": "",
-			"text": "I should defidently recycle this!"
+			"text": "Clean what you want and see what happens if you do or don't."
+		},
+		{
+			"character": "character-1745233534.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "We will meet in the near future!"
+		},
+		{
+			"animation": "bounce_out.gd",
+			"animation_length": 0,
+			"change_mirror_portrait": false,
+			"change_z_index": false,
+			"character": "character-1745233534.json",
+			"event_id": "dialogic_002",
+			"mirror_portrait": false,
+			"portrait": "",
+			"portrait_definition": "",
+			"position": {
+				"0": false,
+				"1": false,
+				"2": false,
+				"3": false,
+				"4": false
+			},
+			"type": 1,
+			"z_index": 0
 		}
 	],
 	"metadata": {
 		"dialogic-version": "1.5.1",
 		"file": "timeline-1746204007.json",
-		"name": "BottlePickUp"
+		"name": "Dia_R22"
 	}
 }

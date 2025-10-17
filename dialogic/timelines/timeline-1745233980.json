@@ -23,23 +23,26 @@
 		{
 			"character": "character-1745233534.json",
 			"event_id": "dialogic_001",
-			"text": "You!"
+			"portrait": "",
+			"text": "The world is slowly dying.."
 		},
 		{
-			"character": "character-1745233534.json",
-			"event_id": "dialogic_001",
-			"text": "How old are you?"
-		},
-		{
-			"character": "character-1760693522.json",
+			"character": "character-1746222060.json",
 			"event_id": "dialogic_001",
 			"portrait": "",
-			"text": "Uhhh... I'm 16 years old..."
+			"text": "And by the next century, climate change could severely disrupt ecosystems and human life worldwide."
 		},
 		{
 			"character": "character-1745233534.json",
 			"event_id": "dialogic_001",
-			"text": "You are what this world needs..."
+			"portrait": "",
+			"text": "Clean what you want and see what happens if you do or don't."
+		},
+		{
+			"character": "character-1745233534.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "We will meet in the near future!"
 		},
 		{
 			"animation": "bounce_out.gd",
