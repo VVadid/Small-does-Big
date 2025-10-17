@@ -133,6 +133,11 @@ _global_script_classes=[ {
 "class": "Thinker",
 "language": "GDScript",
 "path": "res://Entities/player/item_thinkers/thinker.gd"
+}, {
+"base": "Entity",
+"class": "player",
+"language": "GDScript",
+"path": "res://Entities/player/player.gd"
 } ]
 _global_script_class_icons={
 "Attack": "",
@@ -159,12 +164,13 @@ _global_script_class_icons={
 "Prop": "",
 "Sound": "",
 "Status_Effect": "",
-"Thinker": ""
+"Thinker": "",
+"player": ""
 }
 
 [application]
 
-config/name="Verdant-Pledge"
+config/name="Small Does Big"
 config/description="an okay game"
 run/main_scene="res://UI/intro/intro.tscn"
 config/use_custom_user_dir=true

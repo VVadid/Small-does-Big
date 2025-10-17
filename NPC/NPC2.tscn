@@ -249,6 +249,6 @@ position = Vector2( 0, -12 )
 scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 9 )
 
-[connection signal="body_entered" from="DetectionArea" to="." method="_on_Area2D_body_entered"]
 [connection signal="body_entered" from="DetectionArea" to="." method="_on_DetectionArea_body_entered"]
+[connection signal="body_entered" from="DetectionArea" to="." method="_on_Area2D_body_entered"]
 [connection signal="body_exited" from="DetectionArea" to="." method="_on_DetectionArea_body_exited"]

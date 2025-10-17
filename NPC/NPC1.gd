@@ -5,6 +5,9 @@ var player_in_range := false
 var is_chatting := false
 var dialog_node = null
 
+# Add this export for timeline
+export(String) var timeline_to_play := ""
+
 # Sprite references
 onready var sprite = $Root
 onready var shadow = $Root/Shadow
@@ -30,11 +33,19 @@ func _process(_delta):
 		acc.flip_h = flip_state
 		hair.flip_h = flip_state
 		
+	# Show/hide E based on player's movement ability
+	if player_in_range:
+		var player = get_tree().get_nodes_in_group("player")[0]
+		$E.visible = player.movement_enabled
+	else:
+		$E.visible = false
+		
 	# Dialogue trigger with additional check
 	if (player_in_range and 
 		Input.is_action_just_pressed("interact") and 
 		!is_chatting and 
-		!is_anyone_chatting()):
+		!is_anyone_chatting() and
+		player.movement_enabled):  # Only allow interaction if player can move
 		prepare_for_dialogue()
 
 # Check if any NPC is already chatting
@@ -56,7 +67,13 @@ func prepare_for_dialogue():
 	start_dialogue()
 
 func start_dialogue():
-	dialog_node = $DialogicControl.start_dialogue()
+	var dialog_control = $DialogicControl
+	# Use the custom timeline if specified
+	if timeline_to_play != "":
+		dialog_node = dialog_control.start_specific_dialogue(timeline_to_play)
+	else:
+		dialog_node = dialog_control.start_dialogue()
+		
 	dialog_node.connect("timeline_end", self, "_on_dialogue_end", [], CONNECT_ONESHOT)
 
 func _on_dialogue_end(_timeline_name):
@@ -71,10 +88,9 @@ func _on_dialogue_end(_timeline_name):
 func _on_DetectionArea_body_entered(body):
 	if body.has_method("player"):
 		player_in_range = true
-		$E.visible = true
+		# E visibility will be handled in _process based on movement_enabled
 
 func _on_DetectionArea_body_exited(body):
 	if body.has_method("player"):
 		player_in_range = false
 		$E.visible = false
-

@@ -1,0 +1,15 @@
+{
+	"events": [
+		{
+			"character": "character-1760693522.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "I can't waste time!"
+		}
+	],
+	"metadata": {
+		"dialogic-version": "1.5.1",
+		"file": "timeline-1760737802.json",
+		"name": "I can't waste time"
+	}
+}

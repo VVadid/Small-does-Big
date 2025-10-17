@@ -352,7 +352,7 @@ scale = Vector2( 1.05, 0.95 )
 texture = ExtResource( 9 )
 hframes = 7
 vframes = 5
-frame = 27
+frame = 1
 auto_flip_mode = 0
 
 [node name="playerControlled" parent="." instance=ExtResource( 5 )]

@@ -1,3 +1,4 @@
+class_name player
 extends Entity
 
 const SPRITE_NORM = preload("res://Entities/player/player.png")

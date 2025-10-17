@@ -1,22 +1,102 @@
 {
 	"events": [
 		{
-			"character": "",
+			"character": "character-1745233534.json",
 			"event_id": "dialogic_001",
 			"portrait": "",
-			"text": "These plants are sharp!"
+			"text": "There you are!"
 		},
 		{
-			"character": "",
+			"character": "character-1760693522.json",
 			"event_id": "dialogic_001",
 			"portrait": "",
-			"text": "I cant let them hit me."
+			"text": "How the hell did you get here before me?!!"
 		},
 		{
-			"character": "",
+			"character": "character-1745233534.json",
 			"event_id": "dialogic_001",
 			"portrait": "",
-			"text": "I have to move over them while they're in the ground."
+			"text": "Told you I’d meet you at the next obstacle. You just took the scenic route. "
+		},
+		{
+			"character": "character-1745233534.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Anyway, there are two paths here."
+		},
+		{
+			"character": "character-1745233534.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "If you really want to make a difference, take the one on the left."
+		},
+		{
+			"character": "character-1745233534.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "If not take the right path and just skip this part and keep going."
+		},
+		{
+			"character": "character-1745233534.json",
+			"event_id": "dialogic_010",
+			"options": [
+
+			],
+			"portrait": "",
+			"question": "Did you understand?"
+		},
+		{
+			"choice": "Yes",
+			"condition": "",
+			"definition": "",
+			"event_id": "dialogic_011",
+			"value": ""
+		},
+		{
+			"character": "character-1745233534.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Great! Guess I’ll have to kick in my super speed and beat you to the next obstacle."
+		},
+		{
+			"choice": "No",
+			"condition": "",
+			"definition": "",
+			"event_id": "dialogic_011",
+			"value": ""
+		},
+		{
+			"character": "character-1745233534.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Okay listen to me now.."
+		},
+		{
+			"character": "character-1745233534.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "There are two paths here."
+		},
+		{
+			"character": "character-1745233534.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "If you really want to make a difference, take the one on the left."
+		},
+		{
+			"character": "character-1745233534.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "If not take the right path and just skip this part and keep going."
+		},
+		{
+			"character": "character-1745233534.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "I’ll kick in my super speed and beat you to the next obstacle."
+		},
+		{
+			"event_id": "dialogic_013"
 		}
 	],
 	"metadata": {

@@ -24,25 +24,7 @@
 			"character": "character-1745233534.json",
 			"event_id": "dialogic_001",
 			"portrait": "",
-			"text": "The world is slowly dying.."
-		},
-		{
-			"character": "character-1746222060.json",
-			"event_id": "dialogic_001",
-			"portrait": "",
-			"text": "And by the next century, climate change could severely disrupt ecosystems and human life worldwide."
-		},
-		{
-			"character": "character-1745233534.json",
-			"event_id": "dialogic_001",
-			"portrait": "",
-			"text": "Clean what you want and see what happens if you do or don't."
-		},
-		{
-			"character": "character-1745233534.json",
-			"event_id": "dialogic_001",
-			"portrait": "",
-			"text": "We will meet in the near future!"
+			"text": "You go on ahead on this path! I’ll climb this cliff somehow and meet you at the next obstacle!"
 		},
 		{
 			"animation": "bounce_out.gd",
