@@ -7,6 +7,7 @@
 [ext_resource path="res://Entities/Attacks/Melee/poke/poke.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Entities/Attacks/Projectile/thrown_spear/thrown_spear.tscn" type="PackedScene" id=6]
 
+
 [node name="spear_thinker" type="Node"]
 script = ExtResource( 1 )
 HELD_ITEM_TEXTURE = ExtResource( 2 )

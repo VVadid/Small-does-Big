@@ -1,27 +1,21 @@
 {
 	"events": [
 		{
-			"character": "",
+			"character": "character-1746818193.json",
 			"event_id": "dialogic_001",
 			"portrait": "",
-			"text": "There is the golden tree!"
+			"text": "I don’t need to clean anything. Small actions won't do anything that will help climate change."
 		},
 		{
-			"character": "",
+			"character": "character-1760693522.json",
 			"event_id": "dialogic_001",
 			"portrait": "",
-			"text": "It will take me to the next area."
-		},
-		{
-			"character": "",
-			"event_id": "dialogic_001",
-			"portrait": "",
-			"text": "I have to get to the seedbank!"
+			"text": "I’ll just move on and see what happens without picking up the trash."
 		}
 	],
 	"metadata": {
 		"dialogic-version": "1.5.1",
 		"file": "timeline-1746222355.json",
-		"name": "Dia_R5"
+		"name": "5"
 	}
 }

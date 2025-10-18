@@ -9,6 +9,7 @@
 [ext_resource path="res://UI/cursors/cursor_iron_potion.png" type="Texture" id=7]
 [ext_resource path="res://Entities/Attacks/Projectile/thrown_iron_potion/thrown_iron_potion.tscn" type="PackedScene" id=8]
 
+
 [node name="iron_potion_thinker" type="Node"]
 script = ExtResource( 1 )
 HELD_ITEM_TEXTURE = ExtResource( 2 )

@@ -7,6 +7,12 @@
 			"text": "There you are!"
 		},
 		{
+			"character": "character-1745233534.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Are you ready to time travel?!"
+		},
+		{
 			"character": "character-1760693522.json",
 			"event_id": "dialogic_001",
 			"portrait": "",
@@ -28,7 +34,19 @@
 			"character": "character-1745233534.json",
 			"event_id": "dialogic_001",
 			"portrait": "",
-			"text": "If you really want to make a difference, take the one on the left."
+			"text": "Keep in mind no matter the path you take you will be lauched to year 2100."
+		},
+		{
+			"character": "character-1745233534.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "I am going to show you what could happen if we skip small actions vs doing small actrions..."
+		},
+		{
+			"character": "character-1745233534.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "so if you really want to make a difference, take the one on the left."
 		},
 		{
 			"character": "character-1745233534.json",
@@ -81,7 +99,19 @@
 			"character": "character-1745233534.json",
 			"event_id": "dialogic_001",
 			"portrait": "",
-			"text": "If you really want to make a difference, take the one on the left."
+			"text": "Keep in mind no matter the path you take you will be lauched to year 2100."
+		},
+		{
+			"character": "character-1745233534.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "I am going to show you what could happen if we skip small actions vs doing small actrions..."
+		},
+		{
+			"character": "character-1745233534.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "so if you really want to make a difference, take the one on the left."
 		},
 		{
 			"character": "character-1745233534.json",

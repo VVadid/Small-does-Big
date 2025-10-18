@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/TrashSprite.png-2be338d161c2930d2b18ea0c15e2baaf.stex"
+path="res://.import/TrashSprite6.png-f7bb98295cc97e8fb3c637c45c7090bd.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Levels/TrashSprite.png"
-dest_files=[ "res://.import/TrashSprite.png-2be338d161c2930d2b18ea0c15e2baaf.stex" ]
+source_file="res://Entities/Item_Pickups/key/TrashSprite6.png"
+dest_files=[ "res://.import/TrashSprite6.png-f7bb98295cc97e8fb3c637c45c7090bd.stex" ]
 
 [params]
 

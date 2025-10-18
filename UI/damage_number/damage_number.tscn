@@ -3,6 +3,7 @@
 [ext_resource path="res://UI/Themes/general_theme.tres" type="Theme" id=1]
 [ext_resource path="res://UI/damage_number/damage_number.gd" type="Script" id=2]
 
+
 [sub_resource type="CanvasItemMaterial" id=2]
 light_mode = 1
 

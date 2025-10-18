@@ -11,6 +11,7 @@
 [ext_resource path="res://Effects/muzzle_flash/muzzle_flash.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Entities/Attacks/Projectile/small_bullet/small_bullet.tscn" type="PackedScene" id=10]
 
+
 [node name="pistol thinker" type="Node"]
 script = ExtResource( 1 )
 auto_ready_check = false

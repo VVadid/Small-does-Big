@@ -19,34 +19,48 @@ onready var hair = $Root/Hair
 # Add this to prevent multiple dialogues
 func _ready():
 	add_to_group("npc_chat_characters")
-	$E.visible
+	$E.visible = false  # Fixed this line - was missing = false
 
 func _process(_delta):
 	# Flip all sprite components based on player position
 	if player_in_range:
-		var player = get_tree().get_nodes_in_group("player")[0]
-		var flip_state = player.global_position.x < global_position.x
-		sprite.flip_h = flip_state
-		shadow.flip_h = flip_state
-		body.flip_h = flip_state
-		clothes.flip_h = flip_state
-		acc.flip_h = flip_state
-		hair.flip_h = flip_state
-		
-	# Show/hide E based on player's movement ability
-	if player_in_range:
-		var player = get_tree().get_nodes_in_group("player")[0]
-		$E.visible = player.movement_enabled
-	else:
-		$E.visible = false
+		var players = get_tree().get_nodes_in_group("player")
+		if players.size() > 0:
+			var player = players[0]
+			var flip_state = player.global_position.x < global_position.x
+			sprite.flip_h = flip_state
+			shadow.flip_h = flip_state
+			body.flip_h = flip_state
+			clothes.flip_h = flip_state
+			acc.flip_h = flip_state
+			hair.flip_h = flip_state
+			
+			# Show/hide E based on player's movement ability
+			if player.has_method("get_movement_enabled"):
+				$E.visible = player.get_movement_enabled()
+			elif "movement_enabled" in player:
+				$E.visible = player.movement_enabled
+			else:
+				$E.visible = true
 		
 	# Dialogue trigger with additional check
 	if (player_in_range and 
 		Input.is_action_just_pressed("interact") and 
 		!is_chatting and 
-		!is_anyone_chatting() and
-		player.movement_enabled):  # Only allow interaction if player can move
-		prepare_for_dialogue()
+		!is_anyone_chatting()):
+		
+		var players = get_tree().get_nodes_in_group("player")
+		if players.size() > 0:
+			var player = players[0]
+			var can_move = true
+			
+			if player.has_method("get_movement_enabled"):
+				can_move = player.get_movement_enabled()
+			elif "movement_enabled" in player:
+				can_move = player.movement_enabled
+			
+			if can_move:
+				prepare_for_dialogue()
 
 # Check if any NPC is already chatting
 func is_anyone_chatting() -> bool:
@@ -57,14 +71,17 @@ func is_anyone_chatting() -> bool:
 
 func prepare_for_dialogue():
 	is_chatting = true
-	var player = get_tree().get_nodes_in_group("player")[0]
-	
-	# 1. Force idle animation and stop movement
-	player.force_idle()  # Calls both animation and movement freeze
-	
-	# 2. Start dialogue after one frame delay
-	yield(get_tree(), "idle_frame")
-	start_dialogue()
+	var players = get_tree().get_nodes_in_group("player")
+	if players.size() > 0:
+		var player = players[0]
+		
+		# 1. Force idle animation and stop movement
+		if player.has_method("force_idle"):
+			player.force_idle()  # Calls both animation and movement freeze
+		
+		# 2. Start dialogue after one frame delay
+		yield(get_tree(), "idle_frame")
+		start_dialogue()
 
 func start_dialogue():
 	var dialog_control = $DialogicControl
@@ -79,18 +96,20 @@ func start_dialogue():
 func _on_dialogue_end(_timeline_name):
 	is_chatting = false
 	# Re-enable player movement
-	var player = get_tree().get_nodes_in_group("player")[0]
-	player.enable_movement()
+	var players = get_tree().get_nodes_in_group("player")
+	if players.size() > 0:
+		var player = players[0]
+		if player.has_method("enable_movement"):
+			player.enable_movement()
 	
 	if dialog_node:
 		dialog_node.queue_free()
 
 func _on_DetectionArea_body_entered(body):
-	if body.has_method("player"):
+	if body.is_in_group("player"):
 		player_in_range = true
-		# E visibility will be handled in _process based on movement_enabled
 
 func _on_DetectionArea_body_exited(body):
-	if body.has_method("player"):
+	if body.is_in_group("player"):
 		player_in_range = false
 		$E.visible = false

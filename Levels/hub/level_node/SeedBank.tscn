@@ -6,6 +6,7 @@
 [ext_resource path="res://UI/Icons/deaths.png" type="Texture" id=4]
 [ext_resource path="res://UI/Icons/hourglass.png" type="Texture" id=5]
 
+
 [sub_resource type="CircleShape2D" id=1]
 radius = 18.1604
 

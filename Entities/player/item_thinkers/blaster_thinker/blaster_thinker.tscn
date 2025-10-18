@@ -10,6 +10,7 @@
 [ext_resource path="res://Entities/player/item_thinkers/blaster_thinker/overheat.wav" type="AudioStream" id=8]
 [ext_resource path="res://UI/cursors/cursor_blaster.png" type="Texture" id=9]
 
+
 [node name="blaster_thinker" type="Node"]
 script = ExtResource( 1 )
 PRIMARY_ACTION_MODE = 1

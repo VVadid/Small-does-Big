@@ -4,6 +4,7 @@
 [ext_resource path="res://UI/Icons/plain_star.png" type="Texture" id=2]
 [ext_resource path="res://UI/star_counter/star_counter.gd" type="Script" id=3]
 
+
 [node name="StarCounter" type="HBoxContainer"]
 anchor_left = 0.5
 anchor_right = 0.5

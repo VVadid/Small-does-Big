@@ -22,6 +22,7 @@
 [ext_resource path="res://Entities/hunter/hunter.png" type="Texture" id=20]
 [ext_resource path="res://UI/cursors/cursor_awp.png" type="Texture" id=21]
 
+
 [sub_resource type="ShaderMaterial" id=1]
 resource_local_to_scene = true
 

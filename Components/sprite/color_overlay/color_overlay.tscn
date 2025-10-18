@@ -3,6 +3,7 @@
 [ext_resource path="res://UI/Themes/Shaders and Materials/overlay.shader" type="Shader" id=1]
 [ext_resource path="res://Misc/generic.png" type="Texture" id=2]
 
+
 [sub_resource type="ShaderMaterial" id=1]
 shader = ExtResource( 1 )
 shader_param/single_color = true

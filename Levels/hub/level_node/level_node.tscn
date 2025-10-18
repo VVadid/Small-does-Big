@@ -4,6 +4,7 @@
 [ext_resource path="res://Levels/hub/level_node/level_node.png" type="Texture" id=2]
 [ext_resource path="res://Levels/hub/level_node/level_node.gd" type="Script" id=3]
 
+
 [sub_resource type="Animation" id=4]
 resource_name = "1"
 length = 0.4

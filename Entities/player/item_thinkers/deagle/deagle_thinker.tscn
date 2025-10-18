@@ -10,6 +10,7 @@
 [ext_resource path="res://Entities/player/item_thinkers/deagle/deagle_equip.wav" type="AudioStream" id=8]
 [ext_resource path="res://Entities/player/item_thinkers/deagle/deagle_reload.wav" type="AudioStream" id=9]
 
+
 [node name="deagle_thinker" type="Node"]
 script = ExtResource( 1 )
 auto_ready_check = false

@@ -12,6 +12,7 @@
 [ext_resource path="res://Components/hitbox/hitbox.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Entities/Attacks/Melee/swipe/swipe.tscn" type="PackedScene" id=11]
 
+
 [sub_resource type="Curve" id=1]
 max_value = 3.0
 _data = [ Vector2( 0, 3 ), 0.0, 0.0, 0, 0, Vector2( 1, 0 ), 0.0, 0.0, 0, 0 ]

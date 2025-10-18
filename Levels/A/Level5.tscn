@@ -7,6 +7,7 @@
 [ext_resource path="res://NPC/BorderDialouge/Dia_Level4_1.tscn" type="PackedScene" id=5]
 [ext_resource path="res://UI/title_screen/title_screen.mp3" type="AudioStream" id=6]
 
+
 [node name="Pinned" instance=ExtResource( 4 )]
 AMBIANCE = 3
 GLOBAL_PARTICLES = 3

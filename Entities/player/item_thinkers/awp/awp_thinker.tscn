@@ -17,6 +17,7 @@
 [ext_resource path="res://Entities/player/item_thinkers/awp/awp_dot.png" type="Texture" id=15]
 [ext_resource path="res://UI/cursors/cursor_awp_unscoped.png" type="Texture" id=16]
 
+
 [node name="awp_thinker" type="Node"]
 script = ExtResource( 2 )
 auto_ready_check = false

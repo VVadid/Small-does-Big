@@ -12,6 +12,7 @@
 [ext_resource path="res://Entities/player/item_thinkers/shotgun/shotgun_equip.wav" type="AudioStream" id=10]
 [ext_resource path="res://UI/cursors/cursor_shotgun.png" type="Texture" id=11]
 
+
 [node name="shotgun_thinker" type="Node"]
 script = ExtResource( 1 )
 auto_ready_check = false

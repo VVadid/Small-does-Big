@@ -12,6 +12,7 @@ export var thinker: PackedScene
 export var pickup_sound: AudioStream
 export(bool) var player_only := true
 export var ITEM_PICKUP_EFFECT: PackedScene
+export(int, 0, 5) var sprite_frame = 0  # Choose frame from 0-5, defaults to first frame
 var SOURCE: Entity
 var times_used: int = 0
 var the_body = null
@@ -24,6 +25,13 @@ func _ready():
 			push_error("(%s) non-powerups items must be player_only!" % get_name())
 		if type == item_types.ACTIVE and thinker == null:
 			push_error("%s's thinker was not set" % get_name())
+	
+	# Set the sprite frame
+	if has_node("Sprite"):
+		$Sprite.frame = sprite_frame
+
+func get_key_frame() -> int:
+	return sprite_frame
 
 func _on_Area2D_body_entered(body: Node) -> void:
 	if (

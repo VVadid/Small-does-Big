@@ -9,6 +9,7 @@
 [ext_resource path="res://Entities/player/item_thinkers/flamethrower/flamethrower_shoot.wav" type="AudioStream" id=7]
 [ext_resource path="res://Entities/player/item_thinkers/flamethrower/flamethrower_stop.wav" type="AudioStream" id=8]
 
+
 [node name="flamethrower_thinker" type="Node"]
 script = ExtResource( 1 )
 PRIMARY_ACTION_MODE = 1

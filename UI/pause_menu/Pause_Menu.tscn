@@ -13,6 +13,7 @@
 [ext_resource path="res://UI/pause_menu/pause_menu.gd" type="Script" id=11]
 [ext_resource path="res://UI/Icons/restart.png" type="Texture" id=12]
 
+
 [node name="pause_menu" type="ColorRect"]
 pause_mode = 2
 visible = false

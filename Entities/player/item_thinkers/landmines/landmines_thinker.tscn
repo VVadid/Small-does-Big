@@ -7,6 +7,7 @@
 [ext_resource path="res://Entities/player/item_thinkers/landmines/landmine_place.wav" type="AudioStream" id=5]
 [ext_resource path="res://UI/cursors/cursor_landmine.png" type="Texture" id=6]
 
+
 [node name="landmine_thinker" type="Node"]
 script = ExtResource( 2 )
 HELD_ITEM_TEXTURE = ExtResource( 3 )

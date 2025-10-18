@@ -10,6 +10,7 @@
 [ext_resource path="res://Entities/player/item_thinkers/sword/counter_success.wav" type="AudioStream" id=8]
 [ext_resource path="res://Entities/Attacks/Melee/slash/slash.tscn" type="PackedScene" id=9]
 
+
 [sub_resource type="CircleShape2D" id=1]
 radius = 14.0
 

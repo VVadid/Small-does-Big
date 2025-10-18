@@ -6,6 +6,7 @@
 [ext_resource path="res://UI/cursors/cursor_blow_gun.png" type="Texture" id=4]
 [ext_resource path="res://Entities/Attacks/Projectile/blow_dart/blow_dart.tscn" type="PackedScene" id=5]
 
+
 [node name="blow_gun_thinker" type="Node"]
 script = ExtResource( 1 )
 HELD_ITEM_TEXTURE = ExtResource( 3 )

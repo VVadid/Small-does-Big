@@ -10,6 +10,7 @@
 [ext_resource path="res://Entities/Item_Pickups/boots/boots.tscn" type="PackedScene" id=8]
 [ext_resource path="res://UI/Themes/general_theme.tres" type="Theme" id=9]
 
+
 [node name="Longshot" instance=ExtResource( 1 )]
 AMBIANCE = 3
 GLOBAL_PARTICLES = 3

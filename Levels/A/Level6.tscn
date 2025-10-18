@@ -11,6 +11,7 @@
 [ext_resource path="res://NPC/BorderDialouge/Dia_Level5_1.tscn" type="PackedScene" id=9]
 [ext_resource path="res://UI/title_screen/title_screen.mp3" type="AudioStream" id=10]
 
+
 [node name="Boom" instance=ExtResource( 6 )]
 AMBIANCE = 3
 GLOBAL_PARTICLES = 3

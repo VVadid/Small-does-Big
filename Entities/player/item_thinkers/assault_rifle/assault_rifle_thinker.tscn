@@ -10,6 +10,7 @@
 [ext_resource path="res://Components/spawner/spawner.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Effects/muzzle_flash/muzzle_flash.tscn" type="PackedScene" id=9]
 
+
 [node name="assault_rifle_thinker" type="Node"]
 script = ExtResource( 3 )
 auto_ready_check = false

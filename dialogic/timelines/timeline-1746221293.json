@@ -1,33 +1,39 @@
 {
 	"events": [
 		{
-			"character": "",
+			"character": "character-1746222060.json",
 			"event_id": "dialogic_001",
 			"portrait": "",
-			"text": "There are plasmarer beyond here!"
+			"text": "I have to clean! Small actions will change the future even if they dont seem like much!"
 		},
 		{
-			"character": "",
+			"character": "character-1760693522.json",
 			"event_id": "dialogic_001",
 			"portrait": "",
-			"text": "It looks like a plastic bottle."
+			"text": "There are three recycling bins blocking the way!"
 		},
 		{
-			"character": "",
+			"character": "character-1760693522.json",
 			"event_id": "dialogic_001",
 			"portrait": "",
-			"text": "I have to defeat it with this spear, this lady gave me."
+			"text": "Looks like I’ll need to feed each one a piece of trash to get through!"
 		},
 		{
-			"character": "",
+			"character": "character-1760693522.json",
 			"event_id": "dialogic_001",
 			"portrait": "",
-			"text": "I need to cut the bush to get trough!"
+			"text": "I’ll have to find the trash first."
+		},
+		{
+			"character": "character-1760693522.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Then give each one a piece hidden somewhere in this maze!"
 		}
 	],
 	"metadata": {
 		"dialogic-version": "1.5.1",
 		"file": "timeline-1746221293.json",
-		"name": "Dia_R4"
+		"name": "4"
 	}
 }

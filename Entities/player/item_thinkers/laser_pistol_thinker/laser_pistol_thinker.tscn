@@ -5,6 +5,7 @@
 [ext_resource path="res://Entities/Item_Pickups/laser_pistol/laser_pistol.png" type="Texture" id=3]
 [ext_resource path="res://UI/cursors/cursor_laser_pistol.png" type="Texture" id=4]
 
+
 [node name="laser_pistol" type="Node"]
 script = ExtResource( 2 )
 PRIMARY_ACTION_MODE = 1

@@ -10,6 +10,7 @@
 [ext_resource path="res://Entities/Item_Pickups/pulse_rifle/pulse_rifle.png" type="Texture" id=8]
 [ext_resource path="res://UI/cursors/cursor_pulse_rifle.png" type="Texture" id=9]
 
+
 [node name="pulse_rifle_thinker" type="Node"]
 script = ExtResource( 1 )
 HELD_ITEM_TEXTURE = ExtResource( 8 )

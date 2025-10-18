@@ -6,6 +6,7 @@
 [ext_resource path="res://NPC/BorderDialouge/Dia_Level3_2.tscn" type="PackedScene" id=4]
 [ext_resource path="res://UI/title_screen/title_screen.mp3" type="AudioStream" id=5]
 
+
 [node name="Fair" instance=ExtResource( 1 )]
 AMBIANCE = 3
 GLOBAL_PARTICLES = 3

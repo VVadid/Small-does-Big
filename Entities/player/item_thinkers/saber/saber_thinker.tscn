@@ -7,6 +7,7 @@
 [ext_resource path="res://Entities/Item_Pickups/saber/saber.png" type="Texture" id=5]
 [ext_resource path="res://UI/cursors/cursor_saber.png" type="Texture" id=6]
 
+
 [node name="saber_thinker" type="Node"]
 script = ExtResource( 1 )
 PRIMARY_ACTION_MODE = 1

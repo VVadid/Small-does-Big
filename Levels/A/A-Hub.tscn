@@ -49,64 +49,51 @@ position = Vector2( 640, 509.548 )
 LEVEL = "Level1"
 DISPLAY_NAME = "Verdant Pledge"
 
-[node name="Level2" parent="YSort" index="4" instance=ExtResource( 3 )]
-position = Vector2( 521, 510 )
-LEVEL = "Level2"
-DISPLAY_NAME = "Plastic Suffocation"
-STAR_REQUIREMENT = 1
-
-[node name="Level3" parent="YSort" index="5" instance=ExtResource( 3 )]
-position = Vector2( 450, 508 )
-LEVEL = "Level3"
-DISPLAY_NAME = "The Devourer"
-STAR_REQUIREMENT = 2
-CUSTOM_SCENE_PATH = "res://Levels/A/Level3.tscn"
-
-[node name="Level4" parent="YSort" index="6" instance=ExtResource( 3 )]
+[node name="Level4" parent="YSort" index="4" instance=ExtResource( 3 )]
 position = Vector2( 356, 503 )
 DISPLAY_NAME = "Cactie chaos"
 STAR_REQUIREMENT = 3
 CUSTOM_SCENE_PATH = "res://Levels/A/Level4.tscn"
 
-[node name="Level5" parent="YSort" index="7" instance=ExtResource( 3 )]
+[node name="Level5" parent="YSort" index="5" instance=ExtResource( 3 )]
 position = Vector2( 289, 500 )
 DISPLAY_NAME = "Tight Walk"
 STAR_REQUIREMENT = 4
 CUSTOM_SCENE_PATH = "res://Levels/A/Level5.tscn"
 
-[node name="Level6" parent="YSort" index="8" instance=ExtResource( 3 )]
+[node name="Level6" parent="YSort" index="6" instance=ExtResource( 3 )]
 position = Vector2( 226, 504 )
 DISPLAY_NAME = "Sun Barrier"
 STAR_REQUIREMENT = 5
 CUSTOM_SCENE_PATH = "res://Levels/A/Level6.tscn"
 
-[node name="Level7" parent="YSort" index="9" instance=ExtResource( 3 )]
+[node name="Level7" parent="YSort" index="7" instance=ExtResource( 3 )]
 position = Vector2( 131, 501 )
 DISPLAY_NAME = "Open Vault"
 STAR_REQUIREMENT = 6
 CUSTOM_SCENE_PATH = "res://Levels/A/Level7.tscn"
 
-[node name="Level8" parent="YSort" index="10" instance=ExtResource( 3 )]
+[node name="Level8" parent="YSort" index="8" instance=ExtResource( 3 )]
 position = Vector2( 35, 474 )
 DISPLAY_NAME = "Blind Ice"
 STAR_REQUIREMENT = 7
 CUSTOM_SCENE_PATH = "res://Levels/A/Level8.tscn"
 
-[node name="Level9" parent="YSort" index="11" instance=ExtResource( 3 )]
+[node name="Level9" parent="YSort" index="9" instance=ExtResource( 3 )]
 position = Vector2( 19, 398 )
 scale = Vector2( 1, 1.00458 )
 DISPLAY_NAME = "Coughing Smoke"
 STAR_REQUIREMENT = 8
 CUSTOM_SCENE_PATH = "res://Levels/A/Level9.tscn"
 
-[node name="Level10" parent="YSort" index="12" instance=ExtResource( 3 )]
+[node name="Level10" parent="YSort" index="10" instance=ExtResource( 3 )]
 position = Vector2( -56, 333 )
 scale = Vector2( 1, 1.00918 )
 DISPLAY_NAME = "Seed Depression"
 STAR_REQUIREMENT = 9
 CUSTOM_SCENE_PATH = "res://Levels/A/Level10.tscn"
 
-[node name="Dia_Redwood" parent="YSort" index="13" instance=ExtResource( 5 )]
+[node name="Dia_Redwood" parent="YSort" index="11" instance=ExtResource( 5 )]
 position = Vector2( 576, 517 )
 rotation = 1.5708
 player_target_position_path = NodePath("Position2D")
@@ -114,7 +101,7 @@ player_target_position_path = NodePath("Position2D")
 [node name="Position2D" type="Position2D" parent="YSort/Dia_Redwood" index="3"]
 position = Vector2( 0, 16 )
 
-[node name="Dia_Redwood_2" parent="YSort" index="14" instance=ExtResource( 6 )]
+[node name="Dia_Redwood_2" parent="YSort" index="12" instance=ExtResource( 6 )]
 position = Vector2( 416, 501 )
 rotation = 1.5708
 player_target_position_path = NodePath("Position2D")
@@ -127,7 +114,7 @@ position = Vector2( 0, 24 )
 [node name="Position2D_2" type="Position2D" parent="YSort/Dia_Redwood_2" index="4"]
 position = Vector2( 0, -32 )
 
-[node name="Dia_Redwood_3" parent="YSort" index="15" instance=ExtResource( 4 )]
+[node name="Dia_Redwood_3" parent="YSort" index="13" instance=ExtResource( 4 )]
 position = Vector2( 192, 501 )
 rotation = 1.5708
 player_target_position_path = NodePath("Position2D")

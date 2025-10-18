@@ -6,6 +6,7 @@
 [ext_resource path="res://Entities/player/item_thinkers/injection/injection_equip.wav" type="AudioStream" id=4]
 [ext_resource path="res://UI/cursors/cursor_injection.png" type="Texture" id=5]
 
+
 [node name="injection_thinker" type="Node"]
 script = ExtResource( 2 )
 HELD_ITEM_TEXTURE = ExtResource( 3 )
